@@ -68,7 +68,7 @@ mosquitto_pub -t "$T" -m '{"value": <value>}'
 
 A read's answer is published on `<box>/Reading/<command>` (the **Out** column below); `<box>` is `APK.audio/System/Protocols/visa/Device/<Family>/<Model>/<Dev…>`.
 
-## Commands (898) — inputs and outputs of the API
+## Commands (1290) — inputs and outputs of the API
 
 **In** is what the command takes; **Out** is what it gives back and where. Every command arrives on `APK.audio/Gui/Komands/Distortion/<Command>`.
 
@@ -365,110 +365,238 @@ A read's answer is published on `<box>/Reading/<command>` (the **Out** column be
 | `Get_Xtal_Swpt` | `XTALk:SWPType?` | — | → `…/Reading/Get_Xtal_Swpt` | XTAL | unverified |
 | `Get_Xtal_Unit` | `XTALk:UNIT?` | — | CRD → `…/Reading/Get_Xtal_Unit` | XTAL | unverified |
 
-### `set` — writes one value (276)
+### `set` — writes one value (668)
 
 | Command | SCPI | In | Out | Group | |
 |---|---|---|---|---|---|
 | `Set_Acm_Lun` | `:ACM:LUN <value>` | `value`: `PCT` · `OFF` | — | ACM | unverified |
+| `Set_Acm_Lun_OFF` | `:ACM:LUN OFF` | — | — | ACM | unverified |
+| `Set_Acm_Lun_PCT` | `:ACM:LUN PCT` | — | — | ACM | unverified |
 | `Set_Acm_Mmax` | `ACMains:MMAX <value>` | `value`: numeric | — | ACM | unverified |
 | `Set_Acm_Mmin` | `ACMains:MMIN <value>` | `value`: numeric | — | ACM | unverified |
 | `Set_Acm_Unit` | `ACMains:UNIT <value>` | `value`: `V` | — | ACM | unverified |
+| `Set_Acm_Unit_V` | `ACMains:UNIT V` | — | — | ACM | unverified |
 | `Set_Ampl_Amax` | `:AMPL:AMAX <value>` | `value`: numeric V | — | AMPL | unverified |
 | `Set_Ampl_Amin` | `:AMPL:AMIN <value>` | `value`: numeric V | — | AMPL | unverified |
 | `Set_Ampl_Bpfr` | `AMPLitude:BPFR <value>` | `value`: unknown | — | AMPL | unverified |
 | `Set_Ampl_Ext` | `AMPLitude:EXTernal <value>` | `value`: `OFF` · `ON` | — | AMPL | unverified |
+| `Set_Ampl_Ext_OFF` | `AMPLitude:EXTernal OFF` | — | — | AMPL | unverified |
+| `Set_Ampl_Ext_ON` | `AMPLitude:EXTernal ON` | — | — | AMPL | unverified |
 | `Set_Ampl_Filt` | `AMPLitude:FILTer <value>` | `value`: `SEL` · `WTD` · `UNWT` | — | AMPL | unverified |
+| `Set_Ampl_Filt_SEL` | `AMPLitude:FILTer SEL` | — | — | AMPL | unverified |
+| `Set_Ampl_Filt_UNWT` | `AMPLitude:FILTer UNWT` | — | — | AMPL | unverified |
+| `Set_Ampl_Filt_WTD` | `AMPLitude:FILTer WTD` | — | — | AMPL | unverified |
 | `Set_Ampl_Fmax` | `AMPLitude:FMAX <value>` | `value`: numeric Hz | — | AMPL | unverified |
 | `Set_Ampl_Fmin` | `AMPLitude:FMIN <value>` | `value`: numeric Hz | — | AMPL | unverified |
 | `Set_Ampl_Hpas` | `AMPLitude:HPASs <value>` | `value`: `ON` · `OFF` | — | AMPL | unverified |
+| `Set_Ampl_Hpas_OFF` | `AMPLitude:HPASs OFF` | — | — | AMPL | unverified |
+| `Set_Ampl_Hpas_ON` | `AMPLitude:HPASs ON` | — | — | AMPL | unverified |
 | `Set_Ampl_Lpas` | `AMPLitude:LPASs <value>` | `value`: `R22` · `Q22` · `R30` · `R80` · `R300` | — | AMPL | unverified |
+| `Set_Ampl_Lpas_Q22` | `AMPLitude:LPASs Q22` | — | — | AMPL | unverified |
+| `Set_Ampl_Lpas_R22` | `AMPLitude:LPASs R22` | — | — | AMPL | unverified |
+| `Set_Ampl_Lpas_R30` | `AMPLitude:LPASs R30` | — | — | AMPL | unverified |
+| `Set_Ampl_Lpas_R300` | `AMPLitude:LPASs R300` | — | — | AMPL | unverified |
+| `Set_Ampl_Lpas_R80` | `AMPLitude:LPASs R80` | — | — | AMPL | unverified |
 | `Set_Ampl_Mmax` | `AMPLitude:MMAX <value>` | `value`: numeric | — | AMPL | unverified |
 | `Set_Ampl_Mmin` | `AMPLitude:MMIN <value>` | `value`: numeric | — | AMPL | unverified |
 | `Set_Ampl_Spe` | `AMPLitude:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | AMPL | unverified |
+| `Set_Ampl_Spe_FAST` | `AMPLitude:SPEed FAST` | — | — | AMPL | unverified |
+| `Set_Ampl_Spe_MED` | `AMPLitude:SPEed MED` | — | — | AMPL | unverified |
+| `Set_Ampl_Spe_SLOW` | `AMPLitude:SPEed SLOW` | — | — | AMPL | unverified |
 | `Set_Ampl_Swpt` | `AMPLitude:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | AMPL | unverified |
+| `Set_Ampl_Swpt_AMPL` | `AMPLitude:SWPType AMPL` | — | — | AMPL | unverified |
+| `Set_Ampl_Swpt_FREQ` | `AMPLitude:SWPType FREQ` | — | — | AMPL | unverified |
 | `Set_Ampl_Unit` | `AMPLitude:UNIT <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` | — | AMPL | unverified |
+| `Set_Ampl_Unit_DBG` | `AMPLitude:UNIT DBG` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_DBM` | `AMPLitude:UNIT DBM` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_DBR` | `AMPLitude:UNIT DBR` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_DBU` | `AMPLitude:UNIT DBU` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_DBV` | `AMPLitude:UNIT DBV` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_V` | `AMPLitude:UNIT V` | — | — | AMPL | unverified |
+| `Set_Ampl_Unit_W` | `AMPLitude:UNIT W` | — | — | AMPL | unverified |
 | `Set_Ampl_Wtd` | `AMPLitude:WTD <value>` | `value`: `AUX1` · `AUX2` · `IEC` · `RMSC` · `CCIR2K` · `QPKC` · `ARMC` | — | AMPL | unverified |
+| `Set_Ampl_Wtd_ARMC` | `AMPLitude:WTD ARMC` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_AUX1` | `AMPLitude:WTD AUX1` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_AUX2` | `AMPLitude:WTD AUX2` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_CCIR2K` | `AMPLitude:WTD CCIR2K` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_IEC` | `AMPLitude:WTD IEC` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_QPKC` | `AMPLitude:WTD QPKC` | — | — | AMPL | unverified |
+| `Set_Ampl_Wtd_RMSC` | `AMPLitude:WTD RMSC` | — | — | AMPL | unverified |
 | `Set_Damp_Amax` | `:DAMP:AMAX <value>` | `value`: numeric V | — | DAMP | unverified |
 | `Set_Damp_Amin` | `DAMPlitude:AMIN <value>` | `value`: numeric V | — | DAMP | unverified |
 | `Set_Damp_Bpfr` | `DAMPlitude:BPFR <value>` | `value`: unknown | — | DAMP | unverified |
 | `Set_Damp_Ext` | `DAMPlitude:EXTernal <value>` | `value`: `OFF` · `ON` | — | DAMP | unverified |
+| `Set_Damp_Ext_OFF` | `DAMPlitude:EXTernal OFF` | — | — | DAMP | unverified |
+| `Set_Damp_Ext_ON` | `DAMPlitude:EXTernal ON` | — | — | DAMP | unverified |
 | `Set_Damp_Filt` | `DAMPlitude:FILTer <value>` | `value`: `SEL` · `WTD` · `UNWT` | — | DAMP | unverified |
+| `Set_Damp_Filt_SEL` | `DAMPlitude:FILTer SEL` | — | — | DAMP | unverified |
+| `Set_Damp_Filt_UNWT` | `DAMPlitude:FILTer UNWT` | — | — | DAMP | unverified |
+| `Set_Damp_Filt_WTD` | `DAMPlitude:FILTer WTD` | — | — | DAMP | unverified |
 | `Set_Damp_Fmax` | `DAMPlitude:FMAX <value>` | `value`: numeric Hz | — | DAMP | unverified |
 | `Set_Damp_Fmin` | `DAMPlitude:FMIN <value>` | `value`: numeric Hz | — | DAMP | unverified |
 | `Set_Damp_Hpas` | `DAMPlitude:HPASs <value>` | `value`: enum | — | DAMP | unverified |
 | `Set_Damp_Lpas` | `DAMPlitude:LPASs <value>` | `value`: `R15` · `R20` · `HALF` · `R22` · `Q22` | — | DAMP | unverified |
+| `Set_Damp_Lpas_HALF` | `DAMPlitude:LPASs HALF` | — | — | DAMP | unverified |
+| `Set_Damp_Lpas_Q22` | `DAMPlitude:LPASs Q22` | — | — | DAMP | unverified |
+| `Set_Damp_Lpas_R15` | `DAMPlitude:LPASs R15` | — | — | DAMP | unverified |
+| `Set_Damp_Lpas_R20` | `DAMPlitude:LPASs R20` | — | — | DAMP | unverified |
+| `Set_Damp_Lpas_R22` | `DAMPlitude:LPASs R22` | — | — | DAMP | unverified |
 | `Set_Damp_Mmax` | `DAMPlitude:MMAX <value>` | `value`: numeric | — | DAMP | unverified |
 | `Set_Damp_Mmin` | `DAMPlitude:MMIN <value>` | `value`: numeric | — | DAMP | unverified |
 | `Set_Damp_Spe` | `DAMPlitude:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DAMP | unverified |
+| `Set_Damp_Spe_FAST` | `DAMPlitude:SPEed FAST` | — | — | DAMP | unverified |
+| `Set_Damp_Spe_MED` | `DAMPlitude:SPEed MED` | — | — | DAMP | unverified |
+| `Set_Damp_Spe_SLOW` | `DAMPlitude:SPEed SLOW` | — | — | DAMP | unverified |
 | `Set_Damp_Step` | `DAMPlitude:STEP <value>` | `value`: integer | — | DAMP | unverified |
 | `Set_Damp_Swpt` | `DAMPlitude:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DAMP | unverified |
+| `Set_Damp_Swpt_AMPL` | `DAMPlitude:SWPType AMPL` | — | — | DAMP | unverified |
+| `Set_Damp_Swpt_FREQ` | `DAMPlitude:SWPType FREQ` | — | — | DAMP | unverified |
 | `Set_Damp_Unit` | `DAMPlitude:UNIT <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DAMP | unverified |
+| `Set_Damp_Unit_DBFS` | `DAMPlitude:UNIT DBFS` | — | — | DAMP | unverified |
+| `Set_Damp_Unit_DBR` | `DAMPlitude:UNIT DBR` | — | — | DAMP | unverified |
+| `Set_Damp_Unit_FFS` | `DAMPlitude:UNIT FFS` | — | — | DAMP | unverified |
 | `Set_Damp_Wtd` | `DAMPlitude:WTD <value>` | `value`: `IEC` · `RMSC` · `CCIR2K` · `QPKC` | — | DAMP | unverified |
+| `Set_Damp_Wtd_CCIR2K` | `DAMPlitude:WTD CCIR2K` | — | — | DAMP | unverified |
+| `Set_Damp_Wtd_IEC` | `DAMPlitude:WTD IEC` | — | — | DAMP | unverified |
+| `Set_Damp_Wtd_QPKC` | `DAMPlitude:WTD QPKC` | — | — | DAMP | unverified |
+| `Set_Damp_Wtd_RMSC` | `DAMPlitude:WTD RMSC` | — | — | DAMP | unverified |
 | `Set_Dchk_Bits` | `:DCHK:BITS <value>` | `value`: unknown | — | DCHK | unverified |
 | `Set_Dchk_Dbit` | `DCHK:DBITs <value>` | `value`: `ACTV` · `ACTL` | — | DCHK | unverified |
+| `Set_Dchk_Dbit_ACTL` | `DCHK:DBITs ACTL` | — | — | DCHK | unverified |
+| `Set_Dchk_Dbit_ACTV` | `DCHK:DBITs ACTV` | — | — | DCHK | unverified |
 | `Set_Dchk_Dun` | `DCHK:DUNit <value>` | `value`: `DEC` · `HEX` | — | DCHK | unverified |
+| `Set_Dchk_Dun_DEC` | `DCHK:DUNit DEC` | — | — | DCHK | unverified |
+| `Set_Dchk_Dun_HEX` | `DCHK:DUNit HEX` | — | — | DCHK | unverified |
 | `Set_Dchk_Mmax` | `DCHK:MMAX <value>` | `value`: numeric | — | DCHK | unverified |
 | `Set_Dchk_Mmin` | `DCHK:MMIN <value>` | `value`: numeric | — | DCHK | unverified |
 | `Set_Dchk_Unit` | `DCHK:UNIT <value>` | `value`: enum | — | DCHK | unverified |
 | `Set_Dimd_Amax` | `:DIMD:AMAX <value>` | `value`: numeric V | — | DIMD | unverified |
 | `Set_Dimd_Amin` | `DIMD:AMIN <value>` | `value`: numeric V | — | DIMD | unverified |
 | `Set_Dimd_Lun` | `DIMD:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DIMD | unverified |
+| `Set_Dimd_Lun_DBFS` | `DIMD:LUNit DBFS` | — | — | DIMD | unverified |
+| `Set_Dimd_Lun_DBR` | `DIMD:LUNit DBR` | — | — | DIMD | unverified |
+| `Set_Dimd_Lun_FFS` | `DIMD:LUNit FFS` | — | — | DIMD | unverified |
 | `Set_Dimd_Mmax` | `DIMD:MMAX <value>` | `value`: numeric | — | DIMD | unverified |
 | `Set_Dimd_Mmin` | `DIMD:MMIN <value>` | `value`: numeric | — | DIMD | unverified |
 | `Set_Dimd_Spe` | `DIMD:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DIMD | unverified |
+| `Set_Dimd_Spe_FAST` | `DIMD:SPEed FAST` | — | — | DIMD | unverified |
+| `Set_Dimd_Spe_MED` | `DIMD:SPEed MED` | — | — | DIMD | unverified |
+| `Set_Dimd_Spe_SLOW` | `DIMD:SPEed SLOW` | — | — | DIMD | unverified |
 | `Set_Dimd_Step` | `DIMD:STEPs <value>` | `value`: integer | — | DIMD | unverified |
 | `Set_Dimd_Unit` | `DIMD:UNIT <value>` | `value`: `PCT` · `DB` | — | DIMD | unverified |
+| `Set_Dimd_Unit_DB` | `DIMD:UNIT DB` | — | — | DIMD | unverified |
+| `Set_Dimd_Unit_PCT` | `DIMD:UNIT PCT` | — | — | DIMD | unverified |
 | `Set_Dio_Ddref` | `:DIO:DDREF <value>` | `value`: `OUTB` · `OUTF` · `REFB` · `REFF` | — | DIO | unverified |
+| `Set_Dio_Ddref_OUTB` | `:DIO:DDREF OUTB` | — | — | DIO | unverified |
+| `Set_Dio_Ddref_OUTF` | `:DIO:DDREF OUTF` | — | — | DIO | unverified |
+| `Set_Dio_Ddref_REFB` | `:DIO:DDREF REFB` | — | — | DIO | unverified |
+| `Set_Dio_Ddref_REFF` | `:DIO:DDREF REFF` | — | — | DIO | unverified |
 | `Set_Dio_Dir` | `DIO:DIResolution <value>` | `value`: numeric | — | DIO | unverified |
 | `Set_Dio_Dref` | `DIO:DREF <value>` | `value`: unknown | — | DIO | unverified |
 | `Set_Dio_Dun` | `DIO:DUNit <value>` | `value`: `UI` · `SMP` · `SEC` | — | DIO | unverified |
+| `Set_Dio_Dun_SEC` | `DIO:DUNit SEC` | — | — | DIO | unverified |
+| `Set_Dio_Dun_SMP` | `DIO:DUNit SMP` | — | — | DIO | unverified |
+| `Set_Dio_Dun_UI` | `DIO:DUNit UI` | — | — | DIO | unverified |
 | `Set_Dio_Frqr` | `DIO:FRQRef <value>` | `value`: `MEAS` · `OUTP` · `STAT` | — | DIO | unverified |
+| `Set_Dio_Frqr_MEAS` | `DIO:FRQRef MEAS` | — | — | DIO | unverified |
+| `Set_Dio_Frqr_OUTP` | `DIO:FRQRef OUTP` | — | — | DIO | unverified |
+| `Set_Dio_Frqr_STAT` | `DIO:FRQRef STAT` | — | — | DIO | unverified |
 | `Set_Dio_Mmax` | `DIO:MMAX <value>` | `value`: numeric | — | DIO | unverified |
 | `Set_Dio_Mmin` | `DIO:MMIN <value>` | `value`: numeric | — | DIO | unverified |
 | `Set_Dio_Unit` | `DIO:UNIT <value>` | `value`: `HZ` · `PPM` | — | DIO | unverified |
+| `Set_Dio_Unit_HZ` | `DIO:UNIT HZ` | — | — | DIO | unverified |
+| `Set_Dio_Unit_PPM` | `DIO:UNIT PPM` | — | — | DIO | unverified |
 | `Set_Dist_Cod` | `:DIST:COD <value>` | `value`: unknown | — | DIST | unverified |
 | `Set_Djit_Amax` | `:DJIT:AMAX <value>` | `value`: numeric V | — | DJIT | unverified |
 | `Set_Djit_Amin` | `DJITter:AMIN <value>` | `value`: numeric V | — | DJIT | unverified |
 | `Set_Djit_Bpfr` | `DJITter:BPFR <value>` | `value`: unknown | — | DJIT | unverified |
 | `Set_Djit_Det` | `DJITter:DETector <value>` | `value`: enum | — | DJIT | unverified |
 | `Set_Djit_Ext` | `DJITter:EXTernal <value>` | `value`: `OFF` · `ON` | — | DJIT | unverified |
+| `Set_Djit_Ext_OFF` | `DJITter:EXTernal OFF` | — | — | DJIT | unverified |
+| `Set_Djit_Ext_ON` | `DJITter:EXTernal ON` | — | — | DJIT | unverified |
 | `Set_Djit_Filt` | `DJITter:FILTer <value>` | `value`: `SEL` · `UNWT` | — | DJIT | unverified |
+| `Set_Djit_Filt_SEL` | `DJITter:FILTer SEL` | — | — | DJIT | unverified |
+| `Set_Djit_Filt_UNWT` | `DJITter:FILTer UNWT` | — | — | DJIT | unverified |
 | `Set_Djit_Fmax` | `DJITter:FMAX <value>` | `value`: numeric Hz | — | DJIT | unverified |
 | `Set_Djit_Fmin` | `DJITter:FMIN <value>` | `value`: numeric Hz | — | DJIT | unverified |
 | `Set_Djit_Hpas` | `DJITter:HPASs <value>` | `value`: enum | — | DJIT | unverified |
 | `Set_Djit_Jdet` | `DJITter:JDETector <value>` | `value`: `PEAK` · `RMS` | — | DJIT | unverified |
+| `Set_Djit_Jdet_PEAK` | `DJITter:JDETector PEAK` | — | — | DJIT | unverified |
+| `Set_Djit_Jdet_RMS` | `DJITter:JDETector RMS` | — | — | DJIT | unverified |
 | `Set_Djit_Mmax` | `DJITter:MMAX <value>` | `value`: numeric | — | DJIT | unverified |
 | `Set_Djit_Mmin` | `DJITter:MMIN <value>` | `value`: numeric | — | DJIT | unverified |
 | `Set_Djit_Spe` | `DJITter:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DJIT | unverified |
+| `Set_Djit_Spe_FAST` | `DJITter:SPEed FAST` | — | — | DJIT | unverified |
+| `Set_Djit_Spe_MED` | `DJITter:SPEed MED` | — | — | DJIT | unverified |
+| `Set_Djit_Spe_SLOW` | `DJITter:SPEed SLOW` | — | — | DJIT | unverified |
 | `Set_Djit_Step` | `DJITter:STEP <value>` | `value`: integer | — | DJIT | unverified |
 | `Set_Djit_Swpt` | `DJITter:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DJIT | unverified |
+| `Set_Djit_Swpt_AMPL` | `DJITter:SWPType AMPL` | — | — | DJIT | unverified |
+| `Set_Djit_Swpt_FREQ` | `DJITter:SWPType FREQ` | — | — | DJIT | unverified |
 | `Set_Djit_Unit` | `DJITter:UNIT <value>` | `value`: `UI` · `SEC` | — | DJIT | unverified |
+| `Set_Djit_Unit_SEC` | `DJITter:UNIT SEC` | — | — | DJIT | unverified |
+| `Set_Djit_Unit_UI` | `DJITter:UNIT UI` | — | — | DJIT | unverified |
 | `Set_Dlev_Amax` | `:DLEV:AMAX <value>` | `value`: numeric V | — | DLEV | unverified |
 | `Set_Dlev_Amin` | `DLEVel:AMIN <value>` | `value`: numeric V | — | DLEV | unverified |
 | `Set_Dlev_Ext` | `DLEVel:EXTernal <value>` | `value`: `OFF` · `ON` | — | DLEV | unverified |
+| `Set_Dlev_Ext_OFF` | `DLEVel:EXTernal OFF` | — | — | DLEV | unverified |
+| `Set_Dlev_Ext_ON` | `DLEVel:EXTernal ON` | — | — | DLEV | unverified |
 | `Set_Dlev_Lun` | `DLEVel:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DLEV | unverified |
+| `Set_Dlev_Lun_DBFS` | `DLEVel:LUNit DBFS` | — | — | DLEV | unverified |
+| `Set_Dlev_Lun_DBR` | `DLEVel:LUNit DBR` | — | — | DLEV | unverified |
+| `Set_Dlev_Lun_FFS` | `DLEVel:LUNit FFS` | — | — | DLEV | unverified |
 | `Set_Dlev_Mmax` | `DLEVel:MMAX <value>` | `value`: numeric | — | DLEV | unverified |
 | `Set_Dlev_Mmin` | `DLEVel:MMIN <value>` | `value`: numeric | — | DLEV | unverified |
 | `Set_Dlev_Spe` | `DLEVel:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DLEV | unverified |
+| `Set_Dlev_Spe_FAST` | `DLEVel:SPEed FAST` | — | — | DLEV | unverified |
+| `Set_Dlev_Spe_MED` | `DLEVel:SPEed MED` | — | — | DLEV | unverified |
+| `Set_Dlev_Spe_SLOW` | `DLEVel:SPEed SLOW` | — | — | DLEV | unverified |
 | `Set_Dlev_Step` | `DLEVel:STEP <value>` | `value`: integer | — | DLEV | unverified |
 | `Set_Dlev_Swpt` | `DLEVel:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DLEV | unverified |
+| `Set_Dlev_Swpt_AMPL` | `DLEVel:SWPType AMPL` | — | — | DLEV | unverified |
+| `Set_Dlev_Swpt_FREQ` | `DLEVel:SWPType FREQ` | — | — | DLEV | unverified |
 | `Set_Dlev_Unit` | `DLEVel:UNIT <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DLEV | unverified |
+| `Set_Dlev_Unit_DBFS` | `DLEVel:UNIT DBFS` | — | — | DLEV | unverified |
+| `Set_Dlev_Unit_DBR` | `DLEVel:UNIT DBR` | — | — | DLEV | unverified |
+| `Set_Dlev_Unit_FFS` | `DLEVel:UNIT FFS` | — | — | DLEV | unverified |
 | `Set_Dno_Amax` | `DNOise:AMAX <value>` | `value`: numeric V | — | DNO | unverified |
 | `Set_Dno_Amin` | `DNOise:AMIN <value>` | `value`: numeric V | — | DNO | unverified |
 | `Set_Dno_Bpfr` | `DNOise:BPFR <value>` | `value`: unknown | — | DNO | unverified |
 | `Set_Dno_Ext` | `DNOise:EXTernal <value>` | `value`: `OFF` · `ON` | — | DNO | unverified |
+| `Set_Dno_Ext_OFF` | `DNOise:EXTernal OFF` | — | — | DNO | unverified |
+| `Set_Dno_Ext_ON` | `DNOise:EXTernal ON` | — | — | DNO | unverified |
 | `Set_Dno_Filt` | `DNOise:FILTer <value>` | `value`: `SEL` · `WTD` · `UNWTD` | — | DNO | unverified |
+| `Set_Dno_Filt_SEL` | `DNOise:FILTer SEL` | — | — | DNO | unverified |
+| `Set_Dno_Filt_UNWTD` | `DNOise:FILTer UNWTD` | — | — | DNO | unverified |
+| `Set_Dno_Filt_WTD` | `DNOise:FILTer WTD` | — | — | DNO | unverified |
 | `Set_Dno_Fmax` | `DNOise:FMAX <value>` | `value`: numeric Hz | — | DNO | unverified |
 | `Set_Dno_Fmin` | `DNOise:FMIN <value>` | `value`: numeric Hz | — | DNO | unverified |
 | `Set_Dno_Hpas` | `DNOise:HPASs <value>` | `value`: enum | — | DNO | unverified |
 | `Set_Dno_Lpas` | `DNOise:LPASs <value>` | `value`: `R15` · `R20` · `HALF` · `R22` · `Q22` | — | DNO | unverified |
+| `Set_Dno_Lpas_HALF` | `DNOise:LPASs HALF` | — | — | DNO | unverified |
+| `Set_Dno_Lpas_Q22` | `DNOise:LPASs Q22` | — | — | DNO | unverified |
+| `Set_Dno_Lpas_R15` | `DNOise:LPASs R15` | — | — | DNO | unverified |
+| `Set_Dno_Lpas_R20` | `DNOise:LPASs R20` | — | — | DNO | unverified |
+| `Set_Dno_Lpas_R22` | `DNOise:LPASs R22` | — | — | DNO | unverified |
 | `Set_Dno_Mmax` | `DNOise:MMAX <value>` | `value`: numeric | — | DNO | unverified |
 | `Set_Dno_Mmin` | `DNOise:MMIN <value>` | `value`: numeric | — | DNO | unverified |
 | `Set_Dno_Spe` | `DNOise:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DNO | unverified |
+| `Set_Dno_Spe_FAST` | `DNOise:SPEed FAST` | — | — | DNO | unverified |
+| `Set_Dno_Spe_MED` | `DNOise:SPEed MED` | — | — | DNO | unverified |
+| `Set_Dno_Spe_SLOW` | `DNOise:SPEed SLOW` | — | — | DNO | unverified |
 | `Set_Dno_Step` | `DNOise:STEP <value>` | `value`: integer | — | DNO | unverified |
 | `Set_Dno_Swpt` | `DNOise:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DNO | unverified |
+| `Set_Dno_Swpt_AMPL` | `DNOise:SWPType AMPL` | — | — | DNO | unverified |
+| `Set_Dno_Swpt_FREQ` | `DNOise:SWPType FREQ` | — | — | DNO | unverified |
 | `Set_Dno_Unit` | `DNOise:UNIT <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DNO | unverified |
+| `Set_Dno_Unit_DBFS` | `DNOise:UNIT DBFS` | — | — | DNO | unverified |
+| `Set_Dno_Unit_DBR` | `DNOise:UNIT DBR` | — | — | DNO | unverified |
+| `Set_Dno_Unit_FFS` | `DNOise:UNIT FFS` | — | — | DNO | unverified |
 | `Set_Dno_Wtd` | `DNOise:WTD <value>` | `value`: `IEC` · `RMSC` · `CCIR2K` · `QPKC` | — | DNO | unverified |
+| `Set_Dno_Wtd_CCIR2K` | `DNOise:WTD CCIR2K` | — | — | DNO | unverified |
+| `Set_Dno_Wtd_IEC` | `DNOise:WTD IEC` | — | — | DNO | unverified |
+| `Set_Dno_Wtd_QPKC` | `DNOise:WTD QPKC` | — | — | DNO | unverified |
+| `Set_Dno_Wtd_RMSC` | `DNOise:WTD RMSC` | — | — | DNO | unverified |
 | `Set_Dost_Cons` | `DOSTatus:CONS <value>` | `value`: unknown | — | DOST | unverified |
 | `Set_Dost_Prof` | `DOSTatus:PROF <value>` | `value`: unknown | — | DOST | unverified |
 | `Set_Dost_Stdo` | `DOSTatus:STDO <value>` | `value`: enum | — | DOST | unverified |
@@ -476,57 +604,118 @@ A read's answer is published on `<box>/Reading/<command>` (the **Out** column be
 | `Set_Dph_Amax` | `DPHase:AMAX <value>` | `value`: numeric V | — | DPH | unverified |
 | `Set_Dph_Amin` | `DPHase:AMIN <value>` | `value`: numeric V | — | DPH | unverified |
 | `Set_Dph_Ext` | `DPHase:EXTernal <value>` | `value`: `OFF` · `ON` | — | DPH | unverified |
+| `Set_Dph_Ext_OFF` | `DPHase:EXTernal OFF` | — | — | DPH | unverified |
+| `Set_Dph_Ext_ON` | `DPHase:EXTernal ON` | — | — | DPH | unverified |
 | `Set_Dph_Fmax` | `DPHase:FMAX <value>` | `value`: numeric Hz | — | DPH | unverified |
 | `Set_Dph_Fmin` | `DPHase:FMIN <value>` | `value`: numeric Hz | — | DPH | unverified |
 | `Set_Dph_Lun` | `DPHase:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DPH | unverified |
+| `Set_Dph_Lun_DBFS` | `DPHase:LUNit DBFS` | — | — | DPH | unverified |
+| `Set_Dph_Lun_DBR` | `DPHase:LUNit DBR` | — | — | DPH | unverified |
+| `Set_Dph_Lun_FFS` | `DPHase:LUNit FFS` | — | — | DPH | unverified |
 | `Set_Dph_Mmax` | `DPHase:MMAX <value>` | `value`: numeric | — | DPH | unverified |
 | `Set_Dph_Mmin` | `DPHase:MMIN <value>` | `value`: numeric | — | DPH | unverified |
 | `Set_Dph_Rang` | `DPHase:RANGe <value>` | `value`: `DEG90` · `DEG180` · `DEG270` | — | DPH | unverified |
+| `Set_Dph_Rang_DEG180` | `DPHase:RANGe DEG180` | — | — | DPH | unverified |
+| `Set_Dph_Rang_DEG270` | `DPHase:RANGe DEG270` | — | — | DPH | unverified |
+| `Set_Dph_Rang_DEG90` | `DPHase:RANGe DEG90` | — | — | DPH | unverified |
 | `Set_Dph_Spe` | `DPHase:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DPH | unverified |
+| `Set_Dph_Spe_FAST` | `DPHase:SPEed FAST` | — | — | DPH | unverified |
+| `Set_Dph_Spe_MED` | `DPHase:SPEed MED` | — | — | DPH | unverified |
+| `Set_Dph_Spe_SLOW` | `DPHase:SPEed SLOW` | — | — | DPH | unverified |
 | `Set_Dph_Step` | `DPHase:STEP <value>` | `value`: integer | — | DPH | unverified |
 | `Set_Dph_Swpt` | `DPHase:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DPH | unverified |
+| `Set_Dph_Swpt_AMPL` | `DPHase:SWPType AMPL` | — | — | DPH | unverified |
+| `Set_Dph_Swpt_FREQ` | `DPHase:SWPType FREQ` | — | — | DPH | unverified |
 | `Set_Dph_Unit` | `DPHase:UNIT <value>` | `value`: `DEG` | — | DPH | unverified |
+| `Set_Dph_Unit_DEG` | `DPHase:UNIT DEG` | — | — | DPH | unverified |
 | `Set_Drat_Amax` | `:DRAT:AMAX <value>` | `value`: numeric V | — | DRAT | unverified |
 | `Set_Drat_Amin` | `DRATio:AMIN <value>` | `value`: numeric V | — | DRAT | unverified |
 | `Set_Drat_Ext` | `DRATio:EXTernal <value>` | `value`: `OFF` · `ON` | — | DRAT | unverified |
+| `Set_Drat_Ext_OFF` | `DRATio:EXTernal OFF` | — | — | DRAT | unverified |
+| `Set_Drat_Ext_ON` | `DRATio:EXTernal ON` | — | — | DRAT | unverified |
 | `Set_Drat_Fmax` | `DRATio:FMAX <value>` | `value`: numeric Hz | — | DRAT | unverified |
 | `Set_Drat_Fmin` | `DRATio:FMIN <value>` | `value`: numeric Hz | — | DRAT | unverified |
 | `Set_Drat_Lun` | `DRATio:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DRAT | unverified |
+| `Set_Drat_Lun_DBFS` | `DRATio:LUNit DBFS` | — | — | DRAT | unverified |
+| `Set_Drat_Lun_DBR` | `DRATio:LUNit DBR` | — | — | DRAT | unverified |
+| `Set_Drat_Lun_FFS` | `DRATio:LUNit FFS` | — | — | DRAT | unverified |
 | `Set_Drat_Mmax` | `DRATio:MMAX <value>` | `value`: numeric | — | DRAT | unverified |
 | `Set_Drat_Mmin` | `DRATio:MMIN <value>` | `value`: numeric | — | DRAT | unverified |
 | `Set_Drat_Spe` | `DRATio:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DRAT | unverified |
+| `Set_Drat_Spe_FAST` | `DRATio:SPEed FAST` | — | — | DRAT | unverified |
+| `Set_Drat_Spe_MED` | `DRATio:SPEed MED` | — | — | DRAT | unverified |
+| `Set_Drat_Spe_SLOW` | `DRATio:SPEed SLOW` | — | — | DRAT | unverified |
 | `Set_Drat_Step` | `DRATio:STEP <value>` | `value`: integer | — | DRAT | unverified |
 | `Set_Drat_Swpt` | `DRATio:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DRAT | unverified |
+| `Set_Drat_Swpt_AMPL` | `DRATio:SWPType AMPL` | — | — | DRAT | unverified |
+| `Set_Drat_Swpt_FREQ` | `DRATio:SWPType FREQ` | — | — | DRAT | unverified |
 | `Set_Drat_Unit` | `DRATio:UNIT <value>` | `value`: `DB` | — | DRAT | unverified |
+| `Set_Drat_Unit_DB` | `DRATio:UNIT DB` | — | — | DRAT | unverified |
 | `Set_Dthd_Amax` | `:DTHD:AMAX <value>` | `value`: numeric V | — | DTHD | unverified |
 | `Set_Dthd_Amin` | `DTHD:AMIN <value>` | `value`: numeric V | — | DTHD | unverified |
 | `Set_Dthd_Ext` | `DTHD:EXTernal <value>` | `value`: `OFF` · `ON` | — | DTHD | unverified |
+| `Set_Dthd_Ext_OFF` | `DTHD:EXTernal OFF` | — | — | DTHD | unverified |
+| `Set_Dthd_Ext_ON` | `DTHD:EXTernal ON` | — | — | DTHD | unverified |
 | `Set_Dthd_Filt` | `DTHD:FILTer <value>` | `value`: `WTD` · `UNWT` · `AVER` | — | DTHD | unverified |
+| `Set_Dthd_Filt_AVER` | `DTHD:FILTer AVER` | — | — | DTHD | unverified |
+| `Set_Dthd_Filt_UNWT` | `DTHD:FILTer UNWT` | — | — | DTHD | unverified |
+| `Set_Dthd_Filt_WTD` | `DTHD:FILTer WTD` | — | — | DTHD | unverified |
 | `Set_Dthd_Fmax` | `DTHD:FMAX <value>` | `value`: numeric Hz | — | DTHD | unverified |
 | `Set_Dthd_Fmin` | `DTHD:FMIN <value>` | `value`: numeric Hz | — | DTHD | unverified |
 | `Set_Dthd_Hpas` | `DTHD:HPASs <value>` | `value`: enum | — | DTHD | unverified |
 | `Set_Dthd_Lpas` | `DTHD:LPASs <value>` | `value`: `R15` · `R20` · `HALF` · `R22` · `Q22` | — | DTHD | unverified |
+| `Set_Dthd_Lpas_HALF` | `DTHD:LPASs HALF` | — | — | DTHD | unverified |
+| `Set_Dthd_Lpas_Q22` | `DTHD:LPASs Q22` | — | — | DTHD | unverified |
+| `Set_Dthd_Lpas_R15` | `DTHD:LPASs R15` | — | — | DTHD | unverified |
+| `Set_Dthd_Lpas_R20` | `DTHD:LPASs R20` | — | — | DTHD | unverified |
+| `Set_Dthd_Lpas_R22` | `DTHD:LPASs R22` | — | — | DTHD | unverified |
 | `Set_Dthd_Lun` | `DTHD:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DTHD | unverified |
+| `Set_Dthd_Lun_DBFS` | `DTHD:LUNit DBFS` | — | — | DTHD | unverified |
+| `Set_Dthd_Lun_DBR` | `DTHD:LUNit DBR` | — | — | DTHD | unverified |
+| `Set_Dthd_Lun_FFS` | `DTHD:LUNit FFS` | — | — | DTHD | unverified |
 | `Set_Dthd_Mmax` | `DTHD:MMAX <value>` | `value`: numeric | — | DTHD | unverified |
 | `Set_Dthd_Mmin` | `DTHD:MMIN <value>` | `value`: numeric | — | DTHD | unverified |
 | `Set_Dthd_Notc` | `DTHD:NOTChfreq <value>` | `value`: unknown | — | DTHD | unverified |
 | `Set_Dthd_Spe` | `DTHD:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DTHD | unverified |
+| `Set_Dthd_Spe_FAST` | `DTHD:SPEed FAST` | — | — | DTHD | unverified |
+| `Set_Dthd_Spe_MED` | `DTHD:SPEed MED` | — | — | DTHD | unverified |
+| `Set_Dthd_Spe_SLOW` | `DTHD:SPEed SLOW` | — | — | DTHD | unverified |
 | `Set_Dthd_Step` | `DTHD:STEP <value>` | `value`: integer | — | DTHD | unverified |
 | `Set_Dthd_Swpt` | `DTHD:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DTHD | unverified |
+| `Set_Dthd_Swpt_AMPL` | `DTHD:SWPType AMPL` | — | — | DTHD | unverified |
+| `Set_Dthd_Swpt_FREQ` | `DTHD:SWPType FREQ` | — | — | DTHD | unverified |
 | `Set_Dthd_Tun` | `DTHD:TUNe <value>` | `value`: `AUT` · `GENT` · `FIXT` | — | DTHD | unverified |
+| `Set_Dthd_Tun_AUT` | `DTHD:TUNe AUT` | — | — | DTHD | unverified |
+| `Set_Dthd_Tun_FIXT` | `DTHD:TUNe FIXT` | — | — | DTHD | unverified |
+| `Set_Dthd_Tun_GENT` | `DTHD:TUNe GENT` | — | — | DTHD | unverified |
 | `Set_Dthd_Unit` | `DTHD:UNIT <value>` | `value`: `PCT` · `DB` · `FFS` · `DBFS` · `DBR` | — | DTHD | unverified |
+| `Set_Dthd_Unit_DB` | `DTHD:UNIT DB` | — | — | DTHD | unverified |
+| `Set_Dthd_Unit_DBFS` | `DTHD:UNIT DBFS` | — | — | DTHD | unverified |
+| `Set_Dthd_Unit_DBR` | `DTHD:UNIT DBR` | — | — | DTHD | unverified |
+| `Set_Dthd_Unit_FFS` | `DTHD:UNIT FFS` | — | — | DTHD | unverified |
+| `Set_Dthd_Unit_PCT` | `DTHD:UNIT PCT` | — | — | DTHD | unverified |
 | `Set_Dthd_Wtd` | `DTHD:WTD <value>` | `value`: unknown | — | DTHD | unverified |
 | `Set_Dxt_Amax` | `DXTalk:AMAX <value>` | `value`: numeric V | — | DXT | unverified |
 | `Set_Dxt_Amin` | `DXTalk:AMIN <value>` | `value`: numeric V | — | DXT | unverified |
 | `Set_Dxt_Ext` | `DXTalk:EXTernal <value>` | `value`: `OFF` · `ON` | — | DXT | unverified |
+| `Set_Dxt_Ext_OFF` | `DXTalk:EXTernal OFF` | — | — | DXT | unverified |
+| `Set_Dxt_Ext_ON` | `DXTalk:EXTernal ON` | — | — | DXT | unverified |
 | `Set_Dxt_Fmax` | `DXTalk:FMAX <value>` | `value`: numeric Hz | — | DXT | unverified |
 | `Set_Dxt_Fmin` | `DXTalk:FMIN <value>` | `value`: numeric Hz | — | DXT | unverified |
 | `Set_Dxt_Lun` | `DXTalk:LUNit <value>` | `value`: `FFS` · `DBFS` · `DBR` | — | DXT | unverified |
+| `Set_Dxt_Lun_DBFS` | `DXTalk:LUNit DBFS` | — | — | DXT | unverified |
+| `Set_Dxt_Lun_DBR` | `DXTalk:LUNit DBR` | — | — | DXT | unverified |
+| `Set_Dxt_Lun_FFS` | `DXTalk:LUNit FFS` | — | — | DXT | unverified |
 | `Set_Dxt_Mmax` | `DXTalk:MMAX <value>` | `value`: numeric | — | DXT | unverified |
 | `Set_Dxt_Mmin` | `DXTalk:MMIN <value>` | `value`: numeric | — | DXT | unverified |
 | `Set_Dxt_Spe` | `DXTalk:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | DXT | unverified |
+| `Set_Dxt_Spe_FAST` | `DXTalk:SPEed FAST` | — | — | DXT | unverified |
+| `Set_Dxt_Spe_MED` | `DXTalk:SPEed MED` | — | — | DXT | unverified |
+| `Set_Dxt_Spe_SLOW` | `DXTalk:SPEed SLOW` | — | — | DXT | unverified |
 | `Set_Dxt_Step` | `DXTalk:STEP <value>` | `value`: integer | — | DXT | unverified |
 | `Set_Dxt_Swpt` | `DXTalk:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | DXT | unverified |
+| `Set_Dxt_Swpt_AMPL` | `DXTalk:SWPType AMPL` | — | — | DXT | unverified |
+| `Set_Dxt_Swpt_FREQ` | `DXTalk:SWPType FREQ` | — | — | DXT | unverified |
 | `Set_Dxt_Unit` | `DXTalk:UNIT <value>` | `value`: enum | — | DXT | unverified |
 | `Set_Amplitude` | `:GAMPlitude <amp>` | `amp`: numeric V | — | Set Signal Parameters |  |
 | `Set_Genl_Fmax` | `:GENL:FMAX <value>` | `value`: numeric Hz | — | GENL | unverified |
@@ -534,117 +723,320 @@ A read's answer is published on `<box>/Reading/<command>` (the **Out** column be
 | `Set_Genl_Mmax` | `GENLoad:MMAX <value>` | `value`: numeric | — | GENL | unverified |
 | `Set_Genl_Mmin` | `GENLoad:MMIN <value>` | `value`: numeric | — | GENL | unverified |
 | `Set_Genl_Spe` | `GENLoad:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | GENL | unverified |
+| `Set_Genl_Spe_FAST` | `GENLoad:SPEed FAST` | — | — | GENL | unverified |
+| `Set_Genl_Spe_MED` | `GENLoad:SPEed MED` | — | — | GENL | unverified |
+| `Set_Genl_Spe_SLOW` | `GENLoad:SPEed SLOW` | — | — | GENL | unverified |
 | `Set_Genl_Step` | `GENLoad:STEPs <value>` | `value`: integer | — | GENL | unverified |
 | `Set_Genl_Unit` | `GENLoad:UNIT <value>` | `value`: `OHM` | — | GENL | unverified |
+| `Set_Genl_Unit_OHM` | `GENLoad:UNIT OHM` | — | — | GENL | unverified |
 | `Set_Frequency` | `:GFREquency <freq>` | `freq`: numeric | — | Set Signal Parameters |  |
 | `Set_Imd_Amax` | `:IMD:AMAX <value>` | `value`: numeric V | — | IMD | unverified |
 | `Set_Imd_Amin` | `IMD:AMIN <value>` | `value`: numeric V | — | IMD | unverified |
 | `Set_Imd_Lun` | `IMD:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | IMD | unverified |
+| `Set_Imd_Lun_DBG` | `IMD:LUNit DBG` | — | — | IMD | unverified |
+| `Set_Imd_Lun_DBM` | `IMD:LUNit DBM` | — | — | IMD | unverified |
+| `Set_Imd_Lun_DBR` | `IMD:LUNit DBR` | — | — | IMD | unverified |
+| `Set_Imd_Lun_DBU` | `IMD:LUNit DBU` | — | — | IMD | unverified |
+| `Set_Imd_Lun_DBV` | `IMD:LUNit DBV` | — | — | IMD | unverified |
+| `Set_Imd_Lun_OFF` | `IMD:LUNit OFF` | — | — | IMD | unverified |
+| `Set_Imd_Lun_V` | `IMD:LUNit V` | — | — | IMD | unverified |
+| `Set_Imd_Lun_W` | `IMD:LUNit W` | — | — | IMD | unverified |
 | `Set_Imd_Mmax` | `IMD:MMAX <value>` | `value`: numeric | — | IMD | unverified |
 | `Set_Imd_Mmin` | `IMD:MMIN <value>` | `value`: numeric | — | IMD | unverified |
 | `Set_Imd_Spe` | `IMD:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | IMD | unverified |
+| `Set_Imd_Spe_FAST` | `IMD:SPEed FAST` | — | — | IMD | unverified |
+| `Set_Imd_Spe_MED` | `IMD:SPEed MED` | — | — | IMD | unverified |
+| `Set_Imd_Spe_SLOW` | `IMD:SPEed SLOW` | — | — | IMD | unverified |
 | `Set_Imd_Unit` | `IMD:UNIT <value>` | `value`: `PCT` · `DB` | — | IMD | unverified |
+| `Set_Imd_Unit_DB` | `IMD:UNIT DB` | — | — | IMD | unverified |
+| `Set_Imd_Unit_PCT` | `IMD:UNIT PCT` | — | — | IMD | unverified |
 | `Set_Input` | `INPUT <state>` | — | — | General | unverified |
+| `Set_Input_OFF` | `INPUT OFF` | — | — | General | unverified |
+| `Set_Input_ON` | `INPUT ON` | — | — | General | unverified |
 | `Set_Lev_Amax` | `:LEV:AMAX <value>` | `value`: numeric V | — | LEV | unverified |
 | `Set_Lev_Amin` | `LEVel:AMIN <value>` | `value`: numeric V | — | LEV | unverified |
 | `Set_Lev_Ext` | `LEVel:EXTernal <value>` | `value`: `OFF` · `ON` | — | LEV | unverified |
+| `Set_Lev_Ext_OFF` | `LEVel:EXTernal OFF` | — | — | LEV | unverified |
+| `Set_Lev_Ext_ON` | `LEVel:EXTernal ON` | — | — | LEV | unverified |
 | `Set_Lev_Lun` | `LEVel:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` | — | LEV | unverified |
+| `Set_Lev_Lun_DBG` | `LEVel:LUNit DBG` | — | — | LEV | unverified |
+| `Set_Lev_Lun_DBM` | `LEVel:LUNit DBM` | — | — | LEV | unverified |
+| `Set_Lev_Lun_DBR` | `LEVel:LUNit DBR` | — | — | LEV | unverified |
+| `Set_Lev_Lun_DBU` | `LEVel:LUNit DBU` | — | — | LEV | unverified |
+| `Set_Lev_Lun_DBV` | `LEVel:LUNit DBV` | — | — | LEV | unverified |
+| `Set_Lev_Lun_V` | `LEVel:LUNit V` | — | — | LEV | unverified |
+| `Set_Lev_Lun_W` | `LEVel:LUNit W` | — | — | LEV | unverified |
 | `Set_Lev_Mmax` | `LEVel:MMAX <value>` | `value`: numeric | — | LEV | unverified |
 | `Set_Lev_Mmin` | `LEVel:MMIN <value>` | `value`: numeric | — | LEV | unverified |
 | `Set_Lev_Spe` | `LEVel:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | LEV | unverified |
+| `Set_Lev_Spe_FAST` | `LEVel:SPEed FAST` | — | — | LEV | unverified |
+| `Set_Lev_Spe_MED` | `LEVel:SPEed MED` | — | — | LEV | unverified |
+| `Set_Lev_Spe_SLOW` | `LEVel:SPEed SLOW` | — | — | LEV | unverified |
 | `Set_Lev_Step` | `LEVel:STEPs <value>` | `value`: integer | — | LEV | unverified |
 | `Set_Lev_Swpt` | `LEVel:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | LEV | unverified |
+| `Set_Lev_Swpt_AMPL` | `LEVel:SWPType AMPL` | — | — | LEV | unverified |
+| `Set_Lev_Swpt_FREQ` | `LEVel:SWPType FREQ` | — | — | LEV | unverified |
 | `Set_Lev_Unit` | `LEVel:UNIT <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` | — | LEV | unverified |
+| `Set_Lev_Unit_DBG` | `LEVel:UNIT DBG` | — | — | LEV | unverified |
+| `Set_Lev_Unit_DBM` | `LEVel:UNIT DBM` | — | — | LEV | unverified |
+| `Set_Lev_Unit_DBR` | `LEVel:UNIT DBR` | — | — | LEV | unverified |
+| `Set_Lev_Unit_DBU` | `LEVel:UNIT DBU` | — | — | LEV | unverified |
+| `Set_Lev_Unit_DBV` | `LEVel:UNIT DBV` | — | — | LEV | unverified |
+| `Set_Lev_Unit_V` | `LEVel:UNIT V` | — | — | LEV | unverified |
+| `Set_Lev_Unit_W` | `LEVel:UNIT W` | — | — | LEV | unverified |
 | `Set_Mode` | `MODE <value>` | — | — | General | unverified |
 | `Set_Nois_Amax` | `:NOIS:AMAX <value>` | `value`: numeric V | — | NOIS | unverified |
 | `Set_Nois_Amin` | `NOISe:AMIN <value>` | `value`: numeric V | — | NOIS | unverified |
 | `Set_Nois_Bpfr` | `NOISe:BPFR <value>` | `value`: unknown | — | NOIS | unverified |
 | `Set_Nois_Ext` | `NOISe:EXTernal <value>` | `value`: `OFF` · `ON` | — | NOIS | unverified |
+| `Set_Nois_Ext_OFF` | `NOISe:EXTernal OFF` | — | — | NOIS | unverified |
+| `Set_Nois_Ext_ON` | `NOISe:EXTernal ON` | — | — | NOIS | unverified |
 | `Set_Nois_Filt` | `NOISe:FILTer <value>` | `value`: `SEL` · `WTD` · `UNWTD` | — | NOIS | unverified |
+| `Set_Nois_Filt_SEL` | `NOISe:FILTer SEL` | — | — | NOIS | unverified |
+| `Set_Nois_Filt_UNWTD` | `NOISe:FILTer UNWTD` | — | — | NOIS | unverified |
+| `Set_Nois_Filt_WTD` | `NOISe:FILTer WTD` | — | — | NOIS | unverified |
 | `Set_Nois_Fmax` | `NOISe:FMAX <value>` | `value`: numeric Hz | — | NOIS | unverified |
 | `Set_Nois_Fmin` | `NOISe:FMIN <value>` | `value`: numeric Hz | — | NOIS | unverified |
 | `Set_Nois_Hpas` | `NOISe:HPASs <value>` | `value`: `ON` · `OFF` | — | NOIS | unverified |
+| `Set_Nois_Hpas_OFF` | `NOISe:HPASs OFF` | — | — | NOIS | unverified |
+| `Set_Nois_Hpas_ON` | `NOISe:HPASs ON` | — | — | NOIS | unverified |
 | `Set_Nois_Lpas` | `NOISe:LPASs <value>` | `value`: `R22` · `Q22` · `R30` · `R80` · `R300` | — | NOIS | unverified |
+| `Set_Nois_Lpas_Q22` | `NOISe:LPASs Q22` | — | — | NOIS | unverified |
+| `Set_Nois_Lpas_R22` | `NOISe:LPASs R22` | — | — | NOIS | unverified |
+| `Set_Nois_Lpas_R30` | `NOISe:LPASs R30` | — | — | NOIS | unverified |
+| `Set_Nois_Lpas_R300` | `NOISe:LPASs R300` | — | — | NOIS | unverified |
+| `Set_Nois_Lpas_R80` | `NOISe:LPASs R80` | — | — | NOIS | unverified |
 | `Set_Nois_Mmax` | `NOISe:MMAX <value>` | `value`: numeric | — | NOIS | unverified |
 | `Set_Nois_Mmin` | `NOISe:MMIN <value>` | `value`: numeric | — | NOIS | unverified |
 | `Set_Nois_Spe` | `NOISe:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | NOIS | unverified |
+| `Set_Nois_Spe_FAST` | `NOISe:SPEed FAST` | — | — | NOIS | unverified |
+| `Set_Nois_Spe_MED` | `NOISe:SPEed MED` | — | — | NOIS | unverified |
+| `Set_Nois_Spe_SLOW` | `NOISe:SPEed SLOW` | — | — | NOIS | unverified |
 | `Set_Nois_Step` | `NOISe:STEPs <value>` | `value`: integer | — | NOIS | unverified |
 | `Set_Nois_Swpt` | `NOISe:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | NOIS | unverified |
+| `Set_Nois_Swpt_AMPL` | `NOISe:SWPType AMPL` | — | — | NOIS | unverified |
+| `Set_Nois_Swpt_FREQ` | `NOISe:SWPType FREQ` | — | — | NOIS | unverified |
 | `Set_Nois_Unit` | `NOISe:UNIT <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBG` · `W` · `DB` | — | NOIS | unverified |
+| `Set_Nois_Unit_DB` | `NOISe:UNIT DB` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_DBG` | `NOISe:UNIT DBG` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_DBM` | `NOISe:UNIT DBM` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_DBU` | `NOISe:UNIT DBU` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_DBV` | `NOISe:UNIT DBV` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_V` | `NOISe:UNIT V` | — | — | NOIS | unverified |
+| `Set_Nois_Unit_W` | `NOISe:UNIT W` | — | — | NOIS | unverified |
 | `Set_Nois_Wtd` | `NOISe:WTD <value>` | `value`: `AUX1` · `AUX2` · `IEC` · `RMSC` · `CCIR2K` · `QPKC` · `ARMC` | — | NOIS | unverified |
+| `Set_Nois_Wtd_ARMC` | `NOISe:WTD ARMC` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_AUX1` | `NOISe:WTD AUX1` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_AUX2` | `NOISe:WTD AUX2` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_CCIR2K` | `NOISe:WTD CCIR2K` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_IEC` | `NOISe:WTD IEC` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_QPKC` | `NOISe:WTD QPKC` | — | — | NOIS | unverified |
+| `Set_Nois_Wtd_RMSC` | `NOISe:WTD RMSC` | — | — | NOIS | unverified |
 | `Set_Phas_Amax` | `:PHAS:AMAX <value>` | `value`: numeric V | — | PHAS | unverified |
 | `Set_Phas_Amin` | `PHASe:AMIN <value>` | `value`: numeric V | — | PHAS | unverified |
 | `Set_Phas_Ext` | `PHASe:EXTernal <value>` | `value`: `OFF` · `ON` | — | PHAS | unverified |
+| `Set_Phas_Ext_OFF` | `PHASe:EXTernal OFF` | — | — | PHAS | unverified |
+| `Set_Phas_Ext_ON` | `PHASe:EXTernal ON` | — | — | PHAS | unverified |
 | `Set_Phas_Fmax` | `PHASe:FMAX <value>` | `value`: numeric Hz | — | PHAS | unverified |
 | `Set_Phas_Fmin` | `PHASe:FMIN <value>` | `value`: numeric Hz | — | PHAS | unverified |
 | `Set_Phas_Lun` | `PHASe:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | PHAS | unverified |
+| `Set_Phas_Lun_DBG` | `PHASe:LUNit DBG` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_DBM` | `PHASe:LUNit DBM` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_DBR` | `PHASe:LUNit DBR` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_DBU` | `PHASe:LUNit DBU` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_DBV` | `PHASe:LUNit DBV` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_OFF` | `PHASe:LUNit OFF` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_V` | `PHASe:LUNit V` | — | — | PHAS | unverified |
+| `Set_Phas_Lun_W` | `PHASe:LUNit W` | — | — | PHAS | unverified |
 | `Set_Phas_Mmax` | `PHASe:MMAX <value>` | `value`: numeric | — | PHAS | unverified |
 | `Set_Phas_Mmin` | `PHASe:MMIN <value>` | `value`: numeric | — | PHAS | unverified |
 | `Set_Phas_Rang` | `PHASe:RANGe <value>` | `value`: `DEG90` · `DEG180` · `DEG270` | — | PHAS | unverified |
+| `Set_Phas_Rang_DEG180` | `PHASe:RANGe DEG180` | — | — | PHAS | unverified |
+| `Set_Phas_Rang_DEG270` | `PHASe:RANGe DEG270` | — | — | PHAS | unverified |
+| `Set_Phas_Rang_DEG90` | `PHASe:RANGe DEG90` | — | — | PHAS | unverified |
 | `Set_Phas_Spe` | `PHASe:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | PHAS | unverified |
+| `Set_Phas_Spe_FAST` | `PHASe:SPEed FAST` | — | — | PHAS | unverified |
+| `Set_Phas_Spe_MED` | `PHASe:SPEed MED` | — | — | PHAS | unverified |
+| `Set_Phas_Spe_SLOW` | `PHASe:SPEed SLOW` | — | — | PHAS | unverified |
 | `Set_Phas_Step` | `PHASe:STEPs <value>` | `value`: integer | — | PHAS | unverified |
 | `Set_Phas_Swpt` | `PHASe:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | PHAS | unverified |
+| `Set_Phas_Swpt_AMPL` | `PHASe:SWPType AMPL` | — | — | PHAS | unverified |
+| `Set_Phas_Swpt_FREQ` | `PHASe:SWPType FREQ` | — | — | PHAS | unverified |
 | `Set_Phas_Unit` | `PHASe:UNIT <value>` | `value`: `DEG` | — | PHAS | unverified |
+| `Set_Phas_Unit_DEG` | `PHASe:UNIT DEG` | — | — | PHAS | unverified |
 | `Set_Rat_Amax` | `:RAT:AMAX <value>` | `value`: numeric V | — | RAT | unverified |
 | `Set_Rat_Amin` | `RATio:AMIN <value>` | `value`: numeric V | — | RAT | unverified |
 | `Set_Rat_Ext` | `RATio:EXTernal <value>` | `value`: `OFF` · `ON` | — | RAT | unverified |
+| `Set_Rat_Ext_OFF` | `RATio:EXTernal OFF` | — | — | RAT | unverified |
+| `Set_Rat_Ext_ON` | `RATio:EXTernal ON` | — | — | RAT | unverified |
 | `Set_Rat_Fmax` | `RATio:FMAX <value>` | `value`: numeric Hz | — | RAT | unverified |
 | `Set_Rat_Fmin` | `RATio:FMIN <value>` | `value`: numeric Hz | — | RAT | unverified |
 | `Set_Rat_Lun` | `RATio:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | RAT | unverified |
+| `Set_Rat_Lun_DBG` | `RATio:LUNit DBG` | — | — | RAT | unverified |
+| `Set_Rat_Lun_DBM` | `RATio:LUNit DBM` | — | — | RAT | unverified |
+| `Set_Rat_Lun_DBR` | `RATio:LUNit DBR` | — | — | RAT | unverified |
+| `Set_Rat_Lun_DBU` | `RATio:LUNit DBU` | — | — | RAT | unverified |
+| `Set_Rat_Lun_DBV` | `RATio:LUNit DBV` | — | — | RAT | unverified |
+| `Set_Rat_Lun_OFF` | `RATio:LUNit OFF` | — | — | RAT | unverified |
+| `Set_Rat_Lun_V` | `RATio:LUNit V` | — | — | RAT | unverified |
+| `Set_Rat_Lun_W` | `RATio:LUNit W` | — | — | RAT | unverified |
 | `Set_Rat_Mmax` | `RATio:MMAX <value>` | `value`: numeric | — | RAT | unverified |
 | `Set_Rat_Mmin` | `RATio:MMIN <value>` | `value`: numeric | — | RAT | unverified |
 | `Set_Rat_Mode` | `RATio:MODE <value>` | `value`: enum | — | RAT | unverified |
 | `Set_Rat_Spe` | `RATio:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | RAT | unverified |
+| `Set_Rat_Spe_FAST` | `RATio:SPEed FAST` | — | — | RAT | unverified |
+| `Set_Rat_Spe_MED` | `RATio:SPEed MED` | — | — | RAT | unverified |
+| `Set_Rat_Spe_SLOW` | `RATio:SPEed SLOW` | — | — | RAT | unverified |
 | `Set_Rat_Step` | `RATio:STEPs <value>` | `value`: integer | — | RAT | unverified |
 | `Set_Rat_Swpt` | `RATio:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | RAT | unverified |
+| `Set_Rat_Swpt_AMPL` | `RATio:SWPType AMPL` | — | — | RAT | unverified |
+| `Set_Rat_Swpt_FREQ` | `RATio:SWPType FREQ` | — | — | RAT | unverified |
 | `Set_Rat_Unit` | `RATio:UNIT <value>` | `value`: `DB` | — | RAT | unverified |
+| `Set_Rat_Unit_DB` | `RATio:UNIT DB` | — | — | RAT | unverified |
 | `Set_Sin_Hpas` | `:SIN:HPAS <value>` | `value`: `ON` · `OFF` | — | SIN | unverified |
+| `Set_Sin_Hpas_OFF` | `:SIN:HPAS OFF` | — | — | SIN | unverified |
+| `Set_Sin_Hpas_ON` | `:SIN:HPAS ON` | — | — | SIN | unverified |
 | `Set_Sin_Lpas` | `SINad:LPASs <value>` | `value`: `R22` · `Q22` · `R30` · `R80` · `R300` | — | SIN | unverified |
+| `Set_Sin_Lpas_Q22` | `SINad:LPASs Q22` | — | — | SIN | unverified |
+| `Set_Sin_Lpas_R22` | `SINad:LPASs R22` | — | — | SIN | unverified |
+| `Set_Sin_Lpas_R30` | `SINad:LPASs R30` | — | — | SIN | unverified |
+| `Set_Sin_Lpas_R300` | `SINad:LPASs R300` | — | — | SIN | unverified |
+| `Set_Sin_Lpas_R80` | `SINad:LPASs R80` | — | — | SIN | unverified |
 | `Set_Sin_Lun` | `SINad:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | SIN | unverified |
+| `Set_Sin_Lun_DBG` | `SINad:LUNit DBG` | — | — | SIN | unverified |
+| `Set_Sin_Lun_DBM` | `SINad:LUNit DBM` | — | — | SIN | unverified |
+| `Set_Sin_Lun_DBR` | `SINad:LUNit DBR` | — | — | SIN | unverified |
+| `Set_Sin_Lun_DBU` | `SINad:LUNit DBU` | — | — | SIN | unverified |
+| `Set_Sin_Lun_DBV` | `SINad:LUNit DBV` | — | — | SIN | unverified |
+| `Set_Sin_Lun_OFF` | `SINad:LUNit OFF` | — | — | SIN | unverified |
+| `Set_Sin_Lun_V` | `SINad:LUNit V` | — | — | SIN | unverified |
+| `Set_Sin_Lun_W` | `SINad:LUNit W` | — | — | SIN | unverified |
 | `Set_Sin_Mmax` | `SINad:MMAX <value>` | `value`: numeric | — | SIN | unverified |
 | `Set_Sin_Mmin` | `SINad:MMIN <value>` | `value`: numeric | — | SIN | unverified |
 | `Set_Sin_Notc` | `SINad:NOTChfreq <value>` | `value`: unknown | — | SIN | unverified |
 | `Set_Sin_Pres` | `SINad:PRESet <value>` | `value`: `F400` · `F1000` | — | SIN | unverified |
+| `Set_Sin_Pres_F1000` | `SINad:PRESet F1000` | — | — | SIN | unverified |
+| `Set_Sin_Pres_F400` | `SINad:PRESet F400` | — | — | SIN | unverified |
 | `Set_Sin_Tun` | `SINad:TUNe <value>` | `value`: `GENT` · `FIXT` · `OFF` | — | SIN | unverified |
+| `Set_Sin_Tun_FIXT` | `SINad:TUNe FIXT` | — | — | SIN | unverified |
+| `Set_Sin_Tun_GENT` | `SINad:TUNe GENT` | — | — | SIN | unverified |
+| `Set_Sin_Tun_OFF` | `SINad:TUNe OFF` | — | — | SIN | unverified |
 | `Set_Sin_Unit` | `SINad:UNIT <value>` | `value`: `DB` | — | SIN | unverified |
+| `Set_Sin_Unit_DB` | `SINad:UNIT DB` | — | — | SIN | unverified |
 | `Set_Thd_Amax` | `:THD:AMAX <value>` | `value`: numeric V | — | THD | unverified |
 | `Set_Thd_Amin` | `THD:AMIN <value>` | `value`: numeric V | — | THD | unverified |
 | `Set_Thd_Ext` | `THD:EXTernal <value>` | `value`: `OFF` · `ON` | — | THD | unverified |
+| `Set_Thd_Ext_OFF` | `THD:EXTernal OFF` | — | — | THD | unverified |
+| `Set_Thd_Ext_ON` | `THD:EXTernal ON` | — | — | THD | unverified |
 | `Set_Thd_Filt` | `THD:FILTer <value>` | `value`: `WTD` · `UNWT` · `AVER` | — | THD | unverified |
+| `Set_Thd_Filt_AVER` | `THD:FILTer AVER` | — | — | THD | unverified |
+| `Set_Thd_Filt_UNWT` | `THD:FILTer UNWT` | — | — | THD | unverified |
+| `Set_Thd_Filt_WTD` | `THD:FILTer WTD` | — | — | THD | unverified |
 | `Set_Thd_Fmax` | `THD:FMAX <value>` | `value`: numeric Hz | — | THD | unverified |
 | `Set_Thd_Fmin` | `THD:FMIN <value>` | `value`: numeric Hz | — | THD | unverified |
 | `Set_Thd_Hpas` | `THD:HPASs <value>` | `value`: `ON` · `OFF` | — | THD | unverified |
+| `Set_Thd_Hpas_OFF` | `THD:HPASs OFF` | — | — | THD | unverified |
+| `Set_Thd_Hpas_ON` | `THD:HPASs ON` | — | — | THD | unverified |
 | `Set_Thd_Lpas` | `THD:LPASs <value>` | `value`: `R22` · `Q22` · `R30` · `R80` · `R300` | — | THD | unverified |
+| `Set_Thd_Lpas_Q22` | `THD:LPASs Q22` | — | — | THD | unverified |
+| `Set_Thd_Lpas_R22` | `THD:LPASs R22` | — | — | THD | unverified |
+| `Set_Thd_Lpas_R30` | `THD:LPASs R30` | — | — | THD | unverified |
+| `Set_Thd_Lpas_R300` | `THD:LPASs R300` | — | — | THD | unverified |
+| `Set_Thd_Lpas_R80` | `THD:LPASs R80` | — | — | THD | unverified |
 | `Set_Thd_Lun` | `THD:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | THD | unverified |
+| `Set_Thd_Lun_DBG` | `THD:LUNit DBG` | — | — | THD | unverified |
+| `Set_Thd_Lun_DBM` | `THD:LUNit DBM` | — | — | THD | unverified |
+| `Set_Thd_Lun_DBR` | `THD:LUNit DBR` | — | — | THD | unverified |
+| `Set_Thd_Lun_DBU` | `THD:LUNit DBU` | — | — | THD | unverified |
+| `Set_Thd_Lun_DBV` | `THD:LUNit DBV` | — | — | THD | unverified |
+| `Set_Thd_Lun_OFF` | `THD:LUNit OFF` | — | — | THD | unverified |
+| `Set_Thd_Lun_V` | `THD:LUNit V` | — | — | THD | unverified |
+| `Set_Thd_Lun_W` | `THD:LUNit W` | — | — | THD | unverified |
 | `Set_Thd_Mmax` | `THD:MMAX <value>` | `value`: numeric | — | THD | unverified |
 | `Set_Thd_Mmin` | `THD:MMIN <value>` | `value`: numeric | — | THD | unverified |
 | `Set_Thd_Notc` | `THD:NOTChfreq <value>` | `value`: unknown | — | THD | unverified |
 | `Set_Thd_Spe` | `THD:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | THD | unverified |
+| `Set_Thd_Spe_FAST` | `THD:SPEed FAST` | — | — | THD | unverified |
+| `Set_Thd_Spe_MED` | `THD:SPEed MED` | — | — | THD | unverified |
+| `Set_Thd_Spe_SLOW` | `THD:SPEed SLOW` | — | — | THD | unverified |
 | `Set_Thd_Step` | `THD:STEPs <value>` | `value`: integer | — | THD | unverified |
 | `Set_Thd_Swpt` | `THD:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | THD | unverified |
+| `Set_Thd_Swpt_AMPL` | `THD:SWPType AMPL` | — | — | THD | unverified |
+| `Set_Thd_Swpt_FREQ` | `THD:SWPType FREQ` | — | — | THD | unverified |
 | `Set_Thd_Tun` | `THD:TUNe <value>` | `value`: `AUT` · `GENT` · `FIXT` | — | THD | unverified |
+| `Set_Thd_Tun_AUT` | `THD:TUNe AUT` | — | — | THD | unverified |
+| `Set_Thd_Tun_FIXT` | `THD:TUNe FIXT` | — | — | THD | unverified |
+| `Set_Thd_Tun_GENT` | `THD:TUNe GENT` | — | — | THD | unverified |
 | `Set_Thd_Unit` | `THD:UNIT <value>` | `value`: `PCT` · `DB` · `V` · `DBV` · `DBU` · `DBM` · `DBR` | — | THD | unverified |
+| `Set_Thd_Unit_DB` | `THD:UNIT DB` | — | — | THD | unverified |
+| `Set_Thd_Unit_DBM` | `THD:UNIT DBM` | — | — | THD | unverified |
+| `Set_Thd_Unit_DBR` | `THD:UNIT DBR` | — | — | THD | unverified |
+| `Set_Thd_Unit_DBU` | `THD:UNIT DBU` | — | — | THD | unverified |
+| `Set_Thd_Unit_DBV` | `THD:UNIT DBV` | — | — | THD | unverified |
+| `Set_Thd_Unit_PCT` | `THD:UNIT PCT` | — | — | THD | unverified |
+| `Set_Thd_Unit_V` | `THD:UNIT V` | — | — | THD | unverified |
 | `Set_Thd_Wtd` | `THD:WTD <value>` | `value`: unknown | — | THD | unverified |
 | `Set_Wf_Det` | `:WF:DET <value>` | `value`: `IEC` · `NAB` · `JIS` | — | WF | unverified |
+| `Set_Wf_Det_IEC` | `:WF:DET IEC` | — | — | WF | unverified |
+| `Set_Wf_Det_JIS` | `:WF:DET JIS` | — | — | WF | unverified |
+| `Set_Wf_Det_NAB` | `:WF:DET NAB` | — | — | WF | unverified |
 | `Set_Wf_Filt` | `WF:FILTer <value>` | `value`: `WTD` · `UNWT` | — | WF | unverified |
+| `Set_Wf_Filt_UNWT` | `WF:FILTer UNWT` | — | — | WF | unverified |
+| `Set_Wf_Filt_WTD` | `WF:FILTer WTD` | — | — | WF | unverified |
 | `Set_Wf_Lun` | `WF:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | WF | unverified |
+| `Set_Wf_Lun_DBG` | `WF:LUNit DBG` | — | — | WF | unverified |
+| `Set_Wf_Lun_DBM` | `WF:LUNit DBM` | — | — | WF | unverified |
+| `Set_Wf_Lun_DBR` | `WF:LUNit DBR` | — | — | WF | unverified |
+| `Set_Wf_Lun_DBU` | `WF:LUNit DBU` | — | — | WF | unverified |
+| `Set_Wf_Lun_DBV` | `WF:LUNit DBV` | — | — | WF | unverified |
+| `Set_Wf_Lun_OFF` | `WF:LUNit OFF` | — | — | WF | unverified |
+| `Set_Wf_Lun_V` | `WF:LUNit V` | — | — | WF | unverified |
+| `Set_Wf_Lun_W` | `WF:LUNit W` | — | — | WF | unverified |
 | `Set_Wf_Mmax` | `WF:MMAX <value>` | `value`: numeric | — | WF | unverified |
 | `Set_Wf_Mmin` | `WF:MMIN <value>` | `value`: numeric | — | WF | unverified |
 | `Set_Wf_Resp` | `WF:RESPonse <value>` | `value`: `PEAK` · `SIG2` | — | WF | unverified |
+| `Set_Wf_Resp_PEAK` | `WF:RESPonse PEAK` | — | — | WF | unverified |
+| `Set_Wf_Resp_SIG2` | `WF:RESPonse SIG2` | — | — | WF | unverified |
 | `Set_Wf_Unit` | `WF:UNIT <value>` | `value`: `PCT` | — | WF | unverified |
+| `Set_Wf_Unit_PCT` | `WF:UNIT PCT` | — | — | WF | unverified |
 | `Set_Wf_Wfun` | `WF:WFUNit <value>` | `value`: `HZ` · `DPCT3000` · `DPCT3150` · `OFF` | — | WF | unverified |
+| `Set_Wf_Wfun_DPCT3000` | `WF:WFUNit DPCT3000` | — | — | WF | unverified |
+| `Set_Wf_Wfun_DPCT3150` | `WF:WFUNit DPCT3150` | — | — | WF | unverified |
+| `Set_Wf_Wfun_HZ` | `WF:WFUNit HZ` | — | — | WF | unverified |
+| `Set_Wf_Wfun_OFF` | `WF:WFUNit OFF` | — | — | WF | unverified |
 | `Set_Xtal_Amax` | `:XTAL:AMAX <value>` | `value`: numeric V | — | XTAL | unverified |
 | `Set_Xtal_Amin` | `XTALk:AMIN <value>` | `value`: numeric V | — | XTAL | unverified |
 | `Set_Xtal_Ext` | `XTALk:EXTernal <value>` | `value`: `OFF` · `ON` | — | XTAL | unverified |
+| `Set_Xtal_Ext_OFF` | `XTALk:EXTernal OFF` | — | — | XTAL | unverified |
+| `Set_Xtal_Ext_ON` | `XTALk:EXTernal ON` | — | — | XTAL | unverified |
 | `Set_Xtal_Fmax` | `XTALk:FMAX <value>` | `value`: numeric Hz | — | XTAL | unverified |
 | `Set_Xtal_Fmin` | `XTALk:FMIN <value>` | `value`: numeric Hz | — | XTAL | unverified |
 | `Set_Xtal_Lun` | `XTALk:LUNit <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DBG` · `W` · `OFF` | — | XTAL | unverified |
+| `Set_Xtal_Lun_DBG` | `XTALk:LUNit DBG` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_DBM` | `XTALk:LUNit DBM` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_DBR` | `XTALk:LUNit DBR` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_DBU` | `XTALk:LUNit DBU` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_DBV` | `XTALk:LUNit DBV` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_OFF` | `XTALk:LUNit OFF` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_V` | `XTALk:LUNit V` | — | — | XTAL | unverified |
+| `Set_Xtal_Lun_W` | `XTALk:LUNit W` | — | — | XTAL | unverified |
 | `Set_Xtal_Mmax` | `XTALk:MMAX <value>` | `value`: numeric | — | XTAL | unverified |
 | `Set_Xtal_Mmin` | `XTALk:MMIN <value>` | `value`: numeric | — | XTAL | unverified |
 | `Set_Xtal_Spe` | `XTALk:SPEed <value>` | `value`: `FAST` · `MED` · `SLOW` | — | XTAL | unverified |
+| `Set_Xtal_Spe_FAST` | `XTALk:SPEed FAST` | — | — | XTAL | unverified |
+| `Set_Xtal_Spe_MED` | `XTALk:SPEed MED` | — | — | XTAL | unverified |
+| `Set_Xtal_Spe_SLOW` | `XTALk:SPEed SLOW` | — | — | XTAL | unverified |
 | `Set_Xtal_Step` | `XTALk:STEPs <value>` | `value`: integer | — | XTAL | unverified |
 | `Set_Xtal_Swpt` | `XTALk:SWPType <value>` | `value`: `FREQ` · `AMPL` | — | XTAL | unverified |
+| `Set_Xtal_Swpt_AMPL` | `XTALk:SWPType AMPL` | — | — | XTAL | unverified |
+| `Set_Xtal_Swpt_FREQ` | `XTALk:SWPType FREQ` | — | — | XTAL | unverified |
 | `Set_Xtal_Unit` | `XTALk:UNIT <value>` | `value`: `V` · `DBV` · `DBU` · `DBM` · `DBR` · `DB` | — | XTAL | unverified |
+| `Set_Xtal_Unit_DB` | `XTALk:UNIT DB` | — | — | XTAL | unverified |
+| `Set_Xtal_Unit_DBM` | `XTALk:UNIT DBM` | — | — | XTAL | unverified |
+| `Set_Xtal_Unit_DBR` | `XTALk:UNIT DBR` | — | — | XTAL | unverified |
+| `Set_Xtal_Unit_DBU` | `XTALk:UNIT DBU` | — | — | XTAL | unverified |
+| `Set_Xtal_Unit_DBV` | `XTALk:UNIT DBV` | — | — | XTAL | unverified |
+| `Set_Xtal_Unit_V` | `XTALk:UNIT V` | — | — | XTAL | unverified |
 
 ### `nab` — reads more than one thing (observation, telemetry) (289)
 

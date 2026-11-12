@@ -4,7 +4,7 @@
 
 Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the table, not this file.
 
-**610 commands** — SET 276 · RIG 0 · NAB 289 · DO 45 · 575 unverified (94%)
+**1002 commands** — SET 668 · RIG 0 · NAB 289 · DO 45 · 967 unverified (96%)
 
 `SET` one argument · `RIG` several applied together · `NAB` a query · `DO` a parameterless action. **†** marks a command swept out of a manual and never sent to the instrument.
 
@@ -20,6 +20,8 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `GAMPlitude` — **SET** `Set_Amplitude` · `<amp>` · args: `amp` · numeric (V)
 - `GFREquency` — **SET** `Set_Frequency` · `<freq>` · args: `freq` · numeric
 - `INPUT` — **SET** `Set_Input` · `<state>` · bool: `OFF` | `ON` · per-instance: `state` · †<br>Authored from a panel literal in Distortion.json; never executed before.
+- `INPUT` — **SET** `Set_Input_OFF` · `OFF` · †<br>Set_Input → OFF. Authored from a panel literal in Distortion.json; never executed before.
+- `INPUT` — **SET** `Set_Input_ON` · `ON` · †<br>Set_Input → ON. Authored from a panel literal in Distortion.json; never executed before.
 - `MODE` — **SET** `Set_Mode` · `<value>` · per-instance: `value` · †<br>Authored from a panel literal in Distortion.json; never executed before.
 - `M1?` — **NAB** `Read_Ch_A_Only` · → 1 value
 - `M2?` — **NAB** `Read_Ch_B_Only` · → 1 value
@@ -53,10 +55,13 @@ Several statements in one message, so they hang off no single branch. Every stat
 - `WAVeform` — **DO** `Set_Wave_Square` · `SQUare`
 - **`ACM`**
   - `LUN` — **SET** `Set_Acm_Lun` · `<value>` · args: `value` · enum: `PCT` | `OFF` · †<br>Selects the THD+N display units for the ACMAINS measurement function
+  - `LUN` — **SET** `Set_Acm_Lun_OFF` · `OFF` · †<br>Set_Acm_Lun → OFF. Selects the THD+N display units for the ACMAINS measurement function
+  - `LUN` — **SET** `Set_Acm_Lun_PCT` · `PCT` · †<br>Set_Acm_Lun → PCT. Selects the THD+N display units for the ACMAINS measurement function
 - **`ACMains`**
   - `MMAX` — **SET** `Set_Acm_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the bargraph display in volts
   - `MMIN` — **SET** `Set_Acm_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the bargraph display in volts
   - `UNIT` — **SET** `Set_Acm_Unit` · `<value>` · args: `value` · enum: `V` · †<br>Selects the default volts measurement units for the ACMAINS function
+  - `UNIT` — **SET** `Set_Acm_Unit_V` · `V` · †<br>Set_Acm_Unit → V. Selects the default volts measurement units for the ACMAINS function
   - `LUNit?` — **NAB** `Get_Acm_Lun` · → CRD · †<br>Selects the THD+N display units for the ACMAINS measurement function
   - `MMAX?` — **NAB** `Get_Acm_Mmax` · → NR3 · †<br>Selects the upper magnitude display range for the bargraph display in volts
   - `MMIN?` — **NAB** `Get_Acm_Mmin` · → NR3 · †<br>Selects the lower magnitude display range for the bargraph display in volts
@@ -67,17 +72,48 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`AMPLitude`**
   - `BPFR` — **SET** `Set_Ampl_Bpfr` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
   - `EXTernal` — **SET** `Set_Ampl_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Ampl_Ext_OFF` · `OFF` · †<br>Set_Ampl_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Ampl_Ext_ON` · `ON` · †<br>Set_Ampl_Ext → ON. Selects glide or step settling in external sweep mode
   - `FILTer` — **SET** `Set_Ampl_Filt` · `<value>` · args: `value` · enum: `SEL` | `WTD` | `UNWT` · †<br>Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Ampl_Filt_SEL` · `SEL` · †<br>Set_Ampl_Filt → SEL. Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Ampl_Filt_UNWT` · `UNWT` · †<br>Set_Ampl_Filt → UNWT. Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Ampl_Filt_WTD` · `WTD` · †<br>Set_Ampl_Filt → WTD. Selects the filter for the Amplitude function, identical to the front- panel selection
   - `FMAX` — **SET** `Set_Ampl_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN` — **SET** `Set_Ampl_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `HPASs` — **SET** `Set_Ampl_Hpas` · `<value>` · args: `value` · enum: `ON` | `OFF` · †<br>Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Ampl_Hpas_OFF` · `OFF` · †<br>Set_Ampl_Hpas → OFF. Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Ampl_Hpas_ON` · `ON` · †<br>Set_Ampl_Hpas → ON. Enables and disables the high pass filter
   - `LPASs` — **SET** `Set_Ampl_Lpas` · `<value>` · args: `value` · enum: `R22` | `Q22` | `R30` | `R80` | `R300` · †<br>Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Ampl_Lpas_Q22` · `Q22` · †<br>Set_Ampl_Lpas → Q22. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Ampl_Lpas_R22` · `R22` · †<br>Set_Ampl_Lpas → R22. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Ampl_Lpas_R30` · `R30` · †<br>Set_Ampl_Lpas → R30. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Ampl_Lpas_R300` · `R300` · †<br>Set_Ampl_Lpas → R300. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Ampl_Lpas_R80` · `R80` · †<br>Set_Ampl_Lpas → R80. Selects the band pass filter when the unweighted filter is selected
   - `MMAX` — **SET** `Set_Ampl_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Ampl_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `SPEed` — **SET** `Set_Ampl_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Ampl_Spe_FAST` · `FAST` · †<br>Set_Ampl_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Ampl_Spe_MED` · `MED` · †<br>Set_Ampl_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Ampl_Spe_SLOW` · `SLOW` · †<br>Set_Ampl_Spe → SLOW. Selects the sweep speed
   - `SWPType` — **SET** `Set_Ampl_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Ampl_Swpt_AMPL` · `AMPL` · †<br>Set_Ampl_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Ampl_Swpt_FREQ` · `FREQ` · †<br>Set_Ampl_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Ampl_Unit` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` · †<br>Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_DBG` · `DBG` · †<br>Set_Ampl_Unit → DBG. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_DBM` · `DBM` · †<br>Set_Ampl_Unit → DBM. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_DBR` · `DBR` · †<br>Set_Ampl_Unit → DBR. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_DBU` · `DBU` · †<br>Set_Ampl_Unit → DBU. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_DBV` · `DBV` · †<br>Set_Ampl_Unit → DBV. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_V` · `V` · †<br>Set_Ampl_Unit → V. Selects the measurement units for the Amplitude function
+  - `UNIT` — **SET** `Set_Ampl_Unit_W` · `W` · †<br>Set_Ampl_Unit → W. Selects the measurement units for the Amplitude function
   - `WTD` — **SET** `Set_Ampl_Wtd` · `<value>` · args: `value` · enum: `AUX1` | `AUX2` | `IEC` | `RMSC` | `CCIR2K` | `QPKC` | `ARMC` · †<br>Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_ARMC` · `ARMC` · †<br>Set_Ampl_Wtd → ARMC. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_AUX1` · `AUX1` · †<br>Set_Ampl_Wtd → AUX1. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_AUX2` · `AUX2` · †<br>Set_Ampl_Wtd → AUX2. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_CCIR2K` · `CCIR2K` · †<br>Set_Ampl_Wtd → CCIR2K. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_IEC` · `IEC` · †<br>Set_Ampl_Wtd → IEC. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_QPKC` · `QPKC` · †<br>Set_Ampl_Wtd → QPKC. Selects the weighting filter for the Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Ampl_Wtd_RMSC` · `RMSC` · †<br>Set_Ampl_Wtd → RMSC. Selects the weighting filter for the Amplitude function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Ampl_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Ampl_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `BPFR?` — **NAB** `Get_Ampl_Bpfr` · → 1 value · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
@@ -103,18 +139,40 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMIN` — **SET** `Set_Damp_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `BPFR` — **SET** `Set_Damp_Bpfr` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
   - `EXTernal` — **SET** `Set_Damp_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Damp_Ext_OFF` · `OFF` · †<br>Set_Damp_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Damp_Ext_ON` · `ON` · †<br>Set_Damp_Ext → ON. Selects glide or step settling in external sweep mode
   - `FILTer` — **SET** `Set_Damp_Filt` · `<value>` · args: `value` · enum: `SEL` | `WTD` | `UNWT` · †<br>Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Damp_Filt_SEL` · `SEL` · †<br>Set_Damp_Filt → SEL. Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Damp_Filt_UNWT` · `UNWT` · †<br>Set_Damp_Filt → UNWT. Selects the filter for the Amplitude function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Damp_Filt_WTD` · `WTD` · †<br>Set_Damp_Filt → WTD. Selects the filter for the Amplitude function, identical to the front- panel selection
   - `FMAX` — **SET** `Set_Damp_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Damp_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `HPASs` — **SET** `Set_Damp_Hpas` · `<value>` · args: `value` · enum · †<br>Selects the high pass filter cut off frequency
   - `LPASs` — **SET** `Set_Damp_Lpas` · `<value>` · args: `value` · enum: `R15` | `R20` | `HALF` | `R22` | `Q22` · †<br>Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Damp_Lpas_HALF` · `HALF` · †<br>Set_Damp_Lpas → HALF. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Damp_Lpas_Q22` · `Q22` · †<br>Set_Damp_Lpas → Q22. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Damp_Lpas_R15` · `R15` · †<br>Set_Damp_Lpas → R15. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Damp_Lpas_R20` · `R20` · †<br>Set_Damp_Lpas → R20. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Damp_Lpas_R22` · `R22` · †<br>Set_Damp_Lpas → R22. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
   - `MMAX` — **SET** `Set_Damp_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Damp_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Damp_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Damp_Spe_FAST` · `FAST` · †<br>Set_Damp_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Damp_Spe_MED` · `MED` · †<br>Set_Damp_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Damp_Spe_SLOW` · `SLOW` · †<br>Set_Damp_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Damp_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Damp_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Damp_Swpt_AMPL` · `AMPL` · †<br>Set_Damp_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Damp_Swpt_FREQ` · `FREQ` · †<br>Set_Damp_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Damp_Unit` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the Digital Amplitude function
+  - `UNIT` — **SET** `Set_Damp_Unit_DBFS` · `DBFS` · †<br>Set_Damp_Unit → DBFS. Selects the measurement units for the Digital Amplitude function
+  - `UNIT` — **SET** `Set_Damp_Unit_DBR` · `DBR` · †<br>Set_Damp_Unit → DBR. Selects the measurement units for the Digital Amplitude function
+  - `UNIT` — **SET** `Set_Damp_Unit_FFS` · `FFS` · †<br>Set_Damp_Unit → FFS. Selects the measurement units for the Digital Amplitude function
   - `WTD` — **SET** `Set_Damp_Wtd` · `<value>` · args: `value` · enum: `IEC` | `RMSC` | `CCIR2K` | `QPKC` · †<br>Selects the weighting filter for the Digital Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Damp_Wtd_CCIR2K` · `CCIR2K` · †<br>Set_Damp_Wtd → CCIR2K. Selects the weighting filter for the Digital Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Damp_Wtd_IEC` · `IEC` · †<br>Set_Damp_Wtd → IEC. Selects the weighting filter for the Digital Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Damp_Wtd_QPKC` · `QPKC` · †<br>Set_Damp_Wtd → QPKC. Selects the weighting filter for the Digital Amplitude function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Damp_Wtd_RMSC` · `RMSC` · †<br>Set_Damp_Wtd → RMSC. Selects the weighting filter for the Digital Amplitude function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Damp_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Damp_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `BPFR?` — **NAB** `Get_Damp_Bpfr` · → 1 value · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
@@ -134,7 +192,11 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`DCHK`**
   - `BITS` — **SET** `Set_Dchk_Bits` · `<value>` · args: `value` · †<br>This query returns two 32-bit decimal integers (only the low 24 bits are available, the top 8 bits are not used) indicating the state of the digital input signal on the A and B channels
   - `DBITs` — **SET** `Set_Dchk_Dbit` · `<value>` · args: `value` · enum: `ACTV` | `ACTL` · †<br>Selects the measurement mode for the digital interface data bits, either Active Bits mode (ACTV) or Actual Bits mode (ACTL)
+  - `DBITs` — **SET** `Set_Dchk_Dbit_ACTL` · `ACTL` · †<br>Set_Dchk_Dbit → ACTL. Selects the measurement mode for the digital interface data bits, either Active Bits mode (ACTV) or Actual Bits mode (ACTL)
+  - `DBITs` — **SET** `Set_Dchk_Dbit_ACTV` · `ACTV` · †<br>Set_Dchk_Dbit → ACTV. Selects the measurement mode for the digital interface data bits, either Active Bits mode (ACTV) or Actual Bits mode (ACTL)
   - `DUNit` — **SET** `Set_Dchk_Dun` · `<value>` · args: `value` · enum: `DEC` | `HEX` · †<br>Selects the data units for the data display, either decimal (DEC) or hexadecimal (HEX)
+  - `DUNit` — **SET** `Set_Dchk_Dun_DEC` · `DEC` · †<br>Set_Dchk_Dun → DEC. Selects the data units for the data display, either decimal (DEC) or hexadecimal (HEX)
+  - `DUNit` — **SET** `Set_Dchk_Dun_HEX` · `HEX` · †<br>Set_Dchk_Dun → HEX. Selects the data units for the data display, either decimal (DEC) or hexadecimal (HEX)
   - `MMAX` — **SET** `Set_Dchk_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range and units for the bargraph display
   - `MMIN` — **SET** `Set_Dchk_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range and unit for the bargraph display
   - `UNIT` — **SET** `Set_Dchk_Unit` · `<value>` · args: `value` · enum · †<br>Selects the measurement units for the data error measurements
@@ -148,11 +210,19 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Dimd_Amax` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator
   - `AMIN` — **SET** `Set_Dimd_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator
   - `LUNit` — **SET** `Set_Dimd_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the level display units for the Digital DIMD measurement function
+  - `LUNit` — **SET** `Set_Dimd_Lun_DBFS` · `DBFS` · †<br>Set_Dimd_Lun → DBFS. Selects the level display units for the Digital DIMD measurement function
+  - `LUNit` — **SET** `Set_Dimd_Lun_DBR` · `DBR` · †<br>Set_Dimd_Lun → DBR. Selects the level display units for the Digital DIMD measurement function
+  - `LUNit` — **SET** `Set_Dimd_Lun_FFS` · `FFS` · †<br>Set_Dimd_Lun → FFS. Selects the level display units for the Digital DIMD measurement function
   - `MMAX` — **SET** `Set_Dimd_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the bargraph display in currently selected units
   - `MMIN` — **SET** `Set_Dimd_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the bargraph display
   - `SPEed` — **SET** `Set_Dimd_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dimd_Spe_FAST` · `FAST` · †<br>Set_Dimd_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dimd_Spe_MED` · `MED` · †<br>Set_Dimd_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dimd_Spe_SLOW` · `SLOW` · †<br>Set_Dimd_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Dimd_Step` · `<value>` · args: `value` · integer · †<br>Selects the the number of sweep steps
   - `UNIT` — **SET** `Set_Dimd_Unit` · `<value>` · args: `value` · enum: `PCT` | `DB` · †<br>Selects the DIMD measurement units of percent and dB
+  - `UNIT` — **SET** `Set_Dimd_Unit_DB` · `DB` · †<br>Set_Dimd_Unit → DB. Selects the DIMD measurement units of percent and dB
+  - `UNIT` — **SET** `Set_Dimd_Unit_PCT` · `PCT` · †<br>Set_Dimd_Unit → PCT. Selects the DIMD measurement units of percent and dB
   - `AMAX?` — **NAB** `Get_Dimd_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator
   - `AMIN?` — **NAB** `Get_Dimd_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator
   - `LUNit?` — **NAB** `Get_Dimd_Lun` · → CRD · †<br>Selects the level display units for the Digital DIMD measurement function
@@ -166,13 +236,25 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `FMIN` — **DO** `Do_Dimd_Fmin` · †
 - **`DIO`**
   - `DDREF` — **SET** `Set_Dio_Ddref` · `<value>` · args: `value` · enum: `OUTB` | `OUTF` | `REFB` | `REFF` · †<br>Selects the reference source for the Digital Delay measurement function
+  - `DDREF` — **SET** `Set_Dio_Ddref_OUTB` · `OUTB` · †<br>Set_Dio_Ddref → OUTB. Selects the reference source for the Digital Delay measurement function
+  - `DDREF` — **SET** `Set_Dio_Ddref_OUTF` · `OUTF` · †<br>Set_Dio_Ddref → OUTF. Selects the reference source for the Digital Delay measurement function
+  - `DDREF` — **SET** `Set_Dio_Ddref_REFB` · `REFB` · †<br>Set_Dio_Ddref → REFB. Selects the reference source for the Digital Delay measurement function
+  - `DDREF` — **SET** `Set_Dio_Ddref_REFF` · `REFF` · †<br>Set_Dio_Ddref → REFF. Selects the reference source for the Digital Delay measurement function
   - `DIResolution` — **SET** `Set_Dio_Dir` · `<value>` · args: `value` · numeric · †<br>Selects the number of data bits of resolution applied to both channels of the digital audio data on the digital inputs
   - `DREF` — **SET** `Set_Dio_Dref` · `<value>` · args: `value` · †
   - `DUNit` — **SET** `Set_Dio_Dun` · `<value>` · args: `value` · enum: `UI` | `SMP` | `SEC` · †<br>Selects units for the Digital Delay measurement function
+  - `DUNit` — **SET** `Set_Dio_Dun_SEC` · `SEC` · †<br>Set_Dio_Dun → SEC. Selects units for the Digital Delay measurement function
+  - `DUNit` — **SET** `Set_Dio_Dun_SMP` · `SMP` · †<br>Set_Dio_Dun → SMP. Selects units for the Digital Delay measurement function
+  - `DUNit` — **SET** `Set_Dio_Dun_UI` · `UI` · †<br>Set_Dio_Dun → UI. Selects units for the Digital Delay measurement function
   - `FRQRef` — **SET** `Set_Dio_Frqr` · `<value>` · args: `value` · enum: `MEAS` | `OUTP` | `STAT` · †<br>Selects digital audio frequency reference source for digital audio frequency measurement functions
+  - `FRQRef` — **SET** `Set_Dio_Frqr_MEAS` · `MEAS` · †<br>Set_Dio_Frqr → MEAS. Selects digital audio frequency reference source for digital audio frequency measurement functions
+  - `FRQRef` — **SET** `Set_Dio_Frqr_OUTP` · `OUTP` · †<br>Set_Dio_Frqr → OUTP. Selects digital audio frequency reference source for digital audio frequency measurement functions
+  - `FRQRef` — **SET** `Set_Dio_Frqr_STAT` · `STAT` · †<br>Set_Dio_Frqr → STAT. Selects digital audio frequency reference source for digital audio frequency measurement functions
   - `MMAX` — **SET** `Set_Dio_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sample rate bargraph display
   - `MMIN` — **SET** `Set_Dio_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sample rate bargraph display
   - `UNIT` — **SET** `Set_Dio_Unit` · `<value>` · args: `value` · enum: `HZ` | `PPM` · †<br>Selects units for the Digital Sample Rate measurement function
+  - `UNIT` — **SET** `Set_Dio_Unit_HZ` · `HZ` · †<br>Set_Dio_Unit → HZ. Selects units for the Digital Sample Rate measurement function
+  - `UNIT` — **SET** `Set_Dio_Unit_PPM` · `PPM` · †<br>Set_Dio_Unit → PPM. Selects units for the Digital Sample Rate measurement function
   - `DDREF?` — **NAB** `Get_Dio_Ddref` · → 1 value · †<br>Selects the reference source for the Digital Delay measurement function
   - `DIResolution?` — **NAB** `Get_Dio_Dir` · → 1 value · †<br>Selects the number of data bits of resolution applied to both channels of the digital audio data on the digital inputs
   - `DREF?` — **NAB** `Get_Dio_Dref` · → 1 value · †
@@ -199,17 +281,30 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `BPFR` — **SET** `Set_Djit_Bpfr` · `<value>` · args: `value` · †<br>Selects the center frequency for the Digital Jitter analyzer tunable bandpass filter when the Selective filter is selected
   - `DETector` — **SET** `Set_Djit_Det` · `<value>` · args: `value` · enum · †
   - `EXTernal` — **SET** `Set_Djit_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Djit_Ext_OFF` · `OFF` · †<br>Set_Djit_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Djit_Ext_ON` · `ON` · †<br>Set_Djit_Ext → ON. Selects glide or step settling in external sweep mode
   - `FILTer` — **SET** `Set_Djit_Filt` · `<value>` · args: `value` · enum: `SEL` | `UNWT` · †<br>Selects the filter for the Digital Jitter analyzer function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Djit_Filt_SEL` · `SEL` · †<br>Set_Djit_Filt → SEL. Selects the filter for the Digital Jitter analyzer function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Djit_Filt_UNWT` · `UNWT` · †<br>Set_Djit_Filt → UNWT. Selects the filter for the Digital Jitter analyzer function, identical to the front-panel selection
   - `FMAX` — **SET** `Set_Djit_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Djit_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `HPASs` — **SET** `Set_Djit_Hpas` · `<value>` · args: `value` · enum · †<br>Selects the jitter measurement high pass filter cut off frequency
   - `JDETector` — **SET** `Set_Djit_Jdet` · `<value>` · args: `value` · enum: `PEAK` | `RMS` · †<br>Selects Peak or RMS jitter detector
+  - `JDETector` — **SET** `Set_Djit_Jdet_PEAK` · `PEAK` · †<br>Set_Djit_Jdet → PEAK. Selects Peak or RMS jitter detector
+  - `JDETector` — **SET** `Set_Djit_Jdet_RMS` · `RMS` · †<br>Set_Djit_Jdet → RMS. Selects Peak or RMS jitter detector
   - `MMAX` — **SET** `Set_Djit_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Djit_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Djit_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Djit_Spe_FAST` · `FAST` · †<br>Set_Djit_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Djit_Spe_MED` · `MED` · †<br>Set_Djit_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Djit_Spe_SLOW` · `SLOW` · †<br>Set_Djit_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Djit_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Djit_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Djit_Swpt_AMPL` · `AMPL` · †<br>Set_Djit_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Djit_Swpt_FREQ` · `FREQ` · †<br>Set_Djit_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Djit_Unit` · `<value>` · args: `value` · enum: `UI` | `SEC` · †<br>Selects either unit interval (UI) or seconds (SEC) units for the Digital Jitter measurement function
+  - `UNIT` — **SET** `Set_Djit_Unit_SEC` · `SEC` · †<br>Set_Djit_Unit → SEC. Selects either unit interval (UI) or seconds (SEC) units for the Digital Jitter measurement function
+  - `UNIT` — **SET** `Set_Djit_Unit_UI` · `UI` · †<br>Set_Djit_Unit → UI. Selects either unit interval (UI) or seconds (SEC) units for the Digital Jitter measurement function
   - `AMAX?` — **NAB** `Get_Djit_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Djit_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `BPFR?` — **NAB** `Get_Djit_Bpfr` · → 1 value · †<br>Selects the center frequency for the Digital Jitter analyzer tunable bandpass filter when the Selective filter is selected
@@ -231,13 +326,26 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`DLEVel`**
   - `AMIN` — **SET** `Set_Dlev_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Dlev_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dlev_Ext_OFF` · `OFF` · †<br>Set_Dlev_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dlev_Ext_ON` · `ON` · †<br>Set_Dlev_Ext → ON. Selects glide or step settling in external sweep mode
   - `LUNit` — **SET** `Set_Dlev_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Dlev_Lun_DBFS` · `DBFS` · †<br>Set_Dlev_Lun → DBFS. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Dlev_Lun_DBR` · `DBR` · †<br>Set_Dlev_Lun → DBR. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Dlev_Lun_FFS` · `FFS` · †<br>Set_Dlev_Lun → FFS. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
   - `MMAX` — **SET** `Set_Dlev_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Dlev_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Dlev_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dlev_Spe_FAST` · `FAST` · †<br>Set_Dlev_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dlev_Spe_MED` · `MED` · †<br>Set_Dlev_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dlev_Spe_SLOW` · `SLOW` · †<br>Set_Dlev_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Dlev_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Dlev_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dlev_Swpt_AMPL` · `AMPL` · †<br>Set_Dlev_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dlev_Swpt_FREQ` · `FREQ` · †<br>Set_Dlev_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Dlev_Unit` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Dlev_Unit_DBFS` · `DBFS` · †<br>Set_Dlev_Unit → DBFS. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Dlev_Unit_DBR` · `DBR` · †<br>Set_Dlev_Unit → DBR. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Dlev_Unit_FFS` · `FFS` · †<br>Set_Dlev_Unit → FFS. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
   - `AMAX?` — **NAB** `Get_Dlev_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Dlev_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Dlev_Ext` · → BOOL · †<br>Selects glide or step settling in external sweep mode
@@ -256,18 +364,40 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMIN` — **SET** `Set_Dno_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `BPFR` — **SET** `Set_Dno_Bpfr` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
   - `EXTernal` — **SET** `Set_Dno_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dno_Ext_OFF` · `OFF` · †<br>Set_Dno_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dno_Ext_ON` · `ON` · †<br>Set_Dno_Ext → ON. Selects glide or step settling in external sweep mode
   - `FILTer` — **SET** `Set_Dno_Filt` · `<value>` · args: `value` · enum: `SEL` | `WTD` | `UNWTD` · †<br>Selects the filter for the Digital Noise function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Dno_Filt_SEL` · `SEL` · †<br>Set_Dno_Filt → SEL. Selects the filter for the Digital Noise function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Dno_Filt_UNWTD` · `UNWTD` · †<br>Set_Dno_Filt → UNWTD. Selects the filter for the Digital Noise function, identical to the front- panel selection
+  - `FILTer` — **SET** `Set_Dno_Filt_WTD` · `WTD` · †<br>Set_Dno_Filt → WTD. Selects the filter for the Digital Noise function, identical to the front- panel selection
   - `FMAX` — **SET** `Set_Dno_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Dno_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `HPASs` — **SET** `Set_Dno_Hpas` · `<value>` · args: `value` · enum · †<br>Selects the high pass filter cut off frequency
   - `LPASs` — **SET** `Set_Dno_Lpas` · `<value>` · args: `value` · enum: `R15` | `R20` | `HALF` | `R22` | `Q22` · †<br>Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Dno_Lpas_HALF` · `HALF` · †<br>Set_Dno_Lpas → HALF. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Dno_Lpas_Q22` · `Q22` · †<br>Set_Dno_Lpas → Q22. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Dno_Lpas_R15` · `R15` · †<br>Set_Dno_Lpas → R15. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Dno_Lpas_R20` · `R20` · †<br>Set_Dno_Lpas → R20. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Dno_Lpas_R22` · `R22` · †<br>Set_Dno_Lpas → R22. Selects the band pass filter cut off frequency and detector when the unweighted filter is selected
   - `MMAX` — **SET** `Set_Dno_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Dno_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Dno_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dno_Spe_FAST` · `FAST` · †<br>Set_Dno_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dno_Spe_MED` · `MED` · †<br>Set_Dno_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dno_Spe_SLOW` · `SLOW` · †<br>Set_Dno_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Dno_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Dno_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dno_Swpt_AMPL` · `AMPL` · †<br>Set_Dno_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dno_Swpt_FREQ` · `FREQ` · †<br>Set_Dno_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Dno_Unit` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the Digital Noise function
+  - `UNIT` — **SET** `Set_Dno_Unit_DBFS` · `DBFS` · †<br>Set_Dno_Unit → DBFS. Selects the measurement units for the Digital Noise function
+  - `UNIT` — **SET** `Set_Dno_Unit_DBR` · `DBR` · †<br>Set_Dno_Unit → DBR. Selects the measurement units for the Digital Noise function
+  - `UNIT` — **SET** `Set_Dno_Unit_FFS` · `FFS` · †<br>Set_Dno_Unit → FFS. Selects the measurement units for the Digital Noise function
   - `WTD` — **SET** `Set_Dno_Wtd` · `<value>` · args: `value` · enum: `IEC` | `RMSC` | `CCIR2K` | `QPKC` · †<br>Selects the weighting filter for the Digital Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Dno_Wtd_CCIR2K` · `CCIR2K` · †<br>Set_Dno_Wtd → CCIR2K. Selects the weighting filter for the Digital Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Dno_Wtd_IEC` · `IEC` · †<br>Set_Dno_Wtd → IEC. Selects the weighting filter for the Digital Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Dno_Wtd_QPKC` · `QPKC` · †<br>Set_Dno_Wtd → QPKC. Selects the weighting filter for the Digital Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Dno_Wtd_RMSC` · `RMSC` · †<br>Set_Dno_Wtd → RMSC. Selects the weighting filter for the Digital Noise function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Dno_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Dno_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `BPFR?` — **NAB** `Get_Dno_Bpfr` · → 1 value · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
@@ -297,16 +427,30 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Dph_Amax` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN` — **SET** `Set_Dph_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Dph_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dph_Ext_OFF` · `OFF` · †<br>Set_Dph_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dph_Ext_ON` · `ON` · †<br>Set_Dph_Ext → ON. Selects glide or step settling in external sweep mode
   - `FMAX` — **SET** `Set_Dph_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Dph_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `LUNit` — **SET** `Set_Dph_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the Digital Level meter units for the center meter
+  - `LUNit` — **SET** `Set_Dph_Lun_DBFS` · `DBFS` · †<br>Set_Dph_Lun → DBFS. Selects the Digital Level meter units for the center meter
+  - `LUNit` — **SET** `Set_Dph_Lun_DBR` · `DBR` · †<br>Set_Dph_Lun → DBR. Selects the Digital Level meter units for the center meter
+  - `LUNit` — **SET** `Set_Dph_Lun_FFS` · `FFS` · †<br>Set_Dph_Lun → FFS. Selects the Digital Level meter units for the center meter
   - `MMAX` — **SET** `Set_Dph_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep display
   - `MMIN` — **SET** `Set_Dph_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `RANGe` — **SET** `Set_Dph_Rang` · `<value>` · args: `value` · enum: `DEG90` | `DEG180` | `DEG270` · †<br>Selects the Digital Phase meter display range
+  - `RANGe` — **SET** `Set_Dph_Rang_DEG180` · `DEG180` · †<br>Set_Dph_Rang → DEG180. Selects the Digital Phase meter display range
+  - `RANGe` — **SET** `Set_Dph_Rang_DEG270` · `DEG270` · †<br>Set_Dph_Rang → DEG270. Selects the Digital Phase meter display range
+  - `RANGe` — **SET** `Set_Dph_Rang_DEG90` · `DEG90` · †<br>Set_Dph_Rang → DEG90. Selects the Digital Phase meter display range
   - `SPEed` — **SET** `Set_Dph_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dph_Spe_FAST` · `FAST` · †<br>Set_Dph_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dph_Spe_MED` · `MED` · †<br>Set_Dph_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dph_Spe_SLOW` · `SLOW` · †<br>Set_Dph_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Dph_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Dph_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dph_Swpt_AMPL` · `AMPL` · †<br>Set_Dph_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dph_Swpt_FREQ` · `FREQ` · †<br>Set_Dph_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Dph_Unit` · `<value>` · args: `value` · enum: `DEG` · †<br>Selects the default degree measurement units for the DPHASE function
+  - `UNIT` — **SET** `Set_Dph_Unit_DEG` · `DEG` · †<br>Set_Dph_Unit → DEG. Selects the default degree measurement units for the DPHASE function
   - `AMAX?` — **NAB** `Get_Dph_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Dph_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Dph_Ext` · → BOOL · †<br>Selects glide or step settling in external sweep mode
@@ -325,15 +469,26 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`DRATio`**
   - `AMIN` — **SET** `Set_Drat_Amin` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Drat_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Drat_Ext_OFF` · `OFF` · †<br>Set_Drat_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Drat_Ext_ON` · `ON` · †<br>Set_Drat_Ext → ON. Selects glide or step settling in external sweep mode
   - `FMAX` — **SET** `Set_Drat_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Drat_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `LUNit` — **SET** `Set_Drat_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the Digital Ratio function Digital Level measurement units
+  - `LUNit` — **SET** `Set_Drat_Lun_DBFS` · `DBFS` · †<br>Set_Drat_Lun → DBFS. Selects the Digital Ratio function Digital Level measurement units
+  - `LUNit` — **SET** `Set_Drat_Lun_DBR` · `DBR` · †<br>Set_Drat_Lun → DBR. Selects the Digital Ratio function Digital Level measurement units
+  - `LUNit` — **SET** `Set_Drat_Lun_FFS` · `FFS` · †<br>Set_Drat_Lun → FFS. Selects the Digital Ratio function Digital Level measurement units
   - `MMAX` — **SET** `Set_Drat_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Drat_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Drat_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Drat_Spe_FAST` · `FAST` · †<br>Set_Drat_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Drat_Spe_MED` · `MED` · †<br>Set_Drat_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Drat_Spe_SLOW` · `SLOW` · †<br>Set_Drat_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Drat_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Drat_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Drat_Swpt_AMPL` · `AMPL` · †<br>Set_Drat_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Drat_Swpt_FREQ` · `FREQ` · †<br>Set_Drat_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Drat_Unit` · `<value>` · args: `value` · enum: `DB` · †<br>Selects either X/Y or dB units for the Digital Ratio measurement function
+  - `UNIT` — **SET** `Set_Drat_Unit_DB` · `DB` · †<br>Set_Drat_Unit → DB. Selects either X/Y or dB units for the Digital Ratio measurement function
   - `AMAX?` — **NAB** `Get_Drat_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Drat_Amin` · → NR3 V · †<br>This command sets the minimum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Drat_Ext` · → BOOL · †<br>Selects glide or step settling in external sweep mode
@@ -350,20 +505,46 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Dthd_Amax` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN` — **SET** `Set_Dthd_Amin` · `<value>` · args: `value` · numeric (V) · †<br>Sets the minimum amplitude level for an amplitude sweep for the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Dthd_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step in external sweep mode
+  - `EXTernal` — **SET** `Set_Dthd_Ext_OFF` · `OFF` · †<br>Set_Dthd_Ext → OFF. Selects glide or step in external sweep mode
+  - `EXTernal` — **SET** `Set_Dthd_Ext_ON` · `ON` · †<br>Set_Dthd_Ext → ON. Selects glide or step in external sweep mode
   - `FILTer` — **SET** `Set_Dthd_Filt` · `<value>` · args: `value` · enum: `WTD` | `UNWT` | `AVER` · †<br>Selects the filter for the DTHD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Dthd_Filt_AVER` · `AVER` · †<br>Set_Dthd_Filt → AVER. Selects the filter for the DTHD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Dthd_Filt_UNWT` · `UNWT` · †<br>Set_Dthd_Filt → UNWT. Selects the filter for the DTHD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Dthd_Filt_WTD` · `WTD` · †<br>Set_Dthd_Filt → WTD. Selects the filter for the DTHD function, identical to the front-panel selection
   - `FMAX` — **SET** `Set_Dthd_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Dthd_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `HPASs` — **SET** `Set_Dthd_Hpas` · `<value>` · args: `value` · enum · †<br>Selects the high pass filter cut off frequency
   - `LPASs` — **SET** `Set_Dthd_Lpas` · `<value>` · args: `value` · enum: `R15` | `R20` | `HALF` | `R22` | `Q22` · †<br>Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
+  - `LPASs` — **SET** `Set_Dthd_Lpas_HALF` · `HALF` · †<br>Set_Dthd_Lpas → HALF. Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
+  - `LPASs` — **SET** `Set_Dthd_Lpas_Q22` · `Q22` · †<br>Set_Dthd_Lpas → Q22. Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
+  - `LPASs` — **SET** `Set_Dthd_Lpas_R15` · `R15` · †<br>Set_Dthd_Lpas → R15. Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
+  - `LPASs` — **SET** `Set_Dthd_Lpas_R20` · `R20` · †<br>Set_Dthd_Lpas → R20. Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
+  - `LPASs` — **SET** `Set_Dthd_Lpas_R22` · `R22` · †<br>Set_Dthd_Lpas → R22. Selects the band pass filter cut off frequency and detector when the unweighted filter or average filter is selected
   - `LUNit` — **SET** `Set_Dthd_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the Digital Level measurement in the DTHD function
+  - `LUNit` — **SET** `Set_Dthd_Lun_DBFS` · `DBFS` · †<br>Set_Dthd_Lun → DBFS. Selects the measurement units for the Digital Level measurement in the DTHD function
+  - `LUNit` — **SET** `Set_Dthd_Lun_DBR` · `DBR` · †<br>Set_Dthd_Lun → DBR. Selects the measurement units for the Digital Level measurement in the DTHD function
+  - `LUNit` — **SET** `Set_Dthd_Lun_FFS` · `FFS` · †<br>Set_Dthd_Lun → FFS. Selects the measurement units for the Digital Level measurement in the DTHD function
   - `MMAX` — **SET** `Set_Dthd_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Dthd_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `NOTChfreq` — **SET** `Set_Dthd_Notc` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable notch filter when TUNE is set to FIXTune
   - `SPEed` — **SET** `Set_Dthd_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dthd_Spe_FAST` · `FAST` · †<br>Set_Dthd_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dthd_Spe_MED` · `MED` · †<br>Set_Dthd_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dthd_Spe_SLOW` · `SLOW` · †<br>Set_Dthd_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Dthd_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Dthd_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dthd_Swpt_AMPL` · `AMPL` · †<br>Set_Dthd_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dthd_Swpt_FREQ` · `FREQ` · †<br>Set_Dthd_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `TUNe` — **SET** `Set_Dthd_Tun` · `<value>` · args: `value` · enum: `AUT` | `GENT` | `FIXT` · †<br>Selects the notch filter tuning mode for the DTHD function
+  - `TUNe` — **SET** `Set_Dthd_Tun_AUT` · `AUT` · †<br>Set_Dthd_Tun → AUT. Selects the notch filter tuning mode for the DTHD function
+  - `TUNe` — **SET** `Set_Dthd_Tun_FIXT` · `FIXT` · †<br>Set_Dthd_Tun → FIXT. Selects the notch filter tuning mode for the DTHD function
+  - `TUNe` — **SET** `Set_Dthd_Tun_GENT` · `GENT` · †<br>Set_Dthd_Tun → GENT. Selects the notch filter tuning mode for the DTHD function
   - `UNIT` — **SET** `Set_Dthd_Unit` · `<value>` · args: `value` · enum: `PCT` | `DB` | `FFS` | `DBFS` | `DBR` · †<br>Selects the measurement units for the DTHD function
+  - `UNIT` — **SET** `Set_Dthd_Unit_DB` · `DB` · †<br>Set_Dthd_Unit → DB. Selects the measurement units for the DTHD function
+  - `UNIT` — **SET** `Set_Dthd_Unit_DBFS` · `DBFS` · †<br>Set_Dthd_Unit → DBFS. Selects the measurement units for the DTHD function
+  - `UNIT` — **SET** `Set_Dthd_Unit_DBR` · `DBR` · †<br>Set_Dthd_Unit → DBR. Selects the measurement units for the DTHD function
+  - `UNIT` — **SET** `Set_Dthd_Unit_FFS` · `FFS` · †<br>Set_Dthd_Unit → FFS. Selects the measurement units for the DTHD function
+  - `UNIT` — **SET** `Set_Dthd_Unit_PCT` · `PCT` · †<br>Set_Dthd_Unit → PCT. Selects the measurement units for the DTHD function
   - `WTD` — **SET** `Set_Dthd_Wtd` · `<value>` · args: `value` · †<br>Selects the weighting filter for the DTHD+N function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Dthd_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Dthd_Amin` · → NR3 V · †<br>Sets the minimum amplitude level for an amplitude sweep for the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
@@ -388,14 +569,24 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Dxt_Amax` · `<value>` · args: `value` · numeric (V) · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN` — **SET** `Set_Dxt_Amin` · `<value>` · args: `value` · numeric (V) · †<br>Sets the minimum amplitude level for an amplitude sweep for the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Dxt_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dxt_Ext_OFF` · `OFF` · †<br>Set_Dxt_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Dxt_Ext_ON` · `ON` · †<br>Set_Dxt_Ext → ON. Selects glide or step settling in external sweep mode
   - `FMAX` — **SET** `Set_Dxt_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Dxt_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `LUNit` — **SET** `Set_Dxt_Lun` · `<value>` · args: `value` · enum: `FFS` | `DBFS` | `DBR` · †<br>Selects the level measurement units for the DXTALK function
+  - `LUNit` — **SET** `Set_Dxt_Lun_DBFS` · `DBFS` · †<br>Set_Dxt_Lun → DBFS. Selects the level measurement units for the DXTALK function
+  - `LUNit` — **SET** `Set_Dxt_Lun_DBR` · `DBR` · †<br>Set_Dxt_Lun → DBR. Selects the level measurement units for the DXTALK function
+  - `LUNit` — **SET** `Set_Dxt_Lun_FFS` · `FFS` · †<br>Set_Dxt_Lun → FFS. Selects the level measurement units for the DXTALK function
   - `MMAX` — **SET** `Set_Dxt_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Dxt_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep display
   - `SPEed` — **SET** `Set_Dxt_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dxt_Spe_FAST` · `FAST` · †<br>Set_Dxt_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dxt_Spe_MED` · `MED` · †<br>Set_Dxt_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Dxt_Spe_SLOW` · `SLOW` · †<br>Set_Dxt_Spe → SLOW. Selects the sweep speed
   - `STEP` — **SET** `Set_Dxt_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Dxt_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dxt_Swpt_AMPL` · `AMPL` · †<br>Set_Dxt_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Dxt_Swpt_FREQ` · `FREQ` · †<br>Set_Dxt_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Dxt_Unit` · `<value>` · args: `value` · enum · †<br>Selects the DXTALK measurement units
   - `AMAX?` — **NAB** `Get_Dxt_Amax` · → NR3 V · †<br>This command sets the maximum amplitude level for an amplitude sweep of the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Dxt_Amin` · → NR3 V · †<br>Sets the minimum amplitude level for an amplitude sweep for the analog generator, the digital generator, or the jitter generator when the SWPType command is set to AMPL
@@ -419,8 +610,12 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `MMAX` — **SET** `Set_Genl_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in OHMS units
   - `MMIN` — **SET** `Set_Genl_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays in OHMS units
   - `SPEed` — **SET** `Set_Genl_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Genl_Spe_FAST` · `FAST` · †<br>Set_Genl_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Genl_Spe_MED` · `MED` · †<br>Set_Genl_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Genl_Spe_SLOW` · `SLOW` · †<br>Set_Genl_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Genl_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode and the number of sweep steps
   - `UNIT` — **SET** `Set_Genl_Unit` · `<value>` · args: `value` · enum: `OHM` · †<br>Selects the default OHM measurement units for the GENLOAD function
+  - `UNIT` — **SET** `Set_Genl_Unit_OHM` · `OHM` · †<br>Set_Genl_Unit → OHM. Selects the default OHM measurement units for the GENLOAD function
   - `FMAX?` — **NAB** `Get_Genl_Fmax` · → NR3 Hz · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN?` — **NAB** `Get_Genl_Fmin` · → NR3 Hz · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `MMAX?` — **NAB** `Get_Genl_Mmax` · → NR3 · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in OHMS units
@@ -432,10 +627,23 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Imd_Amax` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator
   - `AMIN` — **SET** `Set_Imd_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator
   - `LUNit` — **SET** `Set_Imd_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_DBG` · `DBG` · †<br>Set_Imd_Lun → DBG. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_DBM` · `DBM` · †<br>Set_Imd_Lun → DBM. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_DBR` · `DBR` · †<br>Set_Imd_Lun → DBR. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_DBU` · `DBU` · †<br>Set_Imd_Lun → DBU. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_DBV` · `DBV` · †<br>Set_Imd_Lun → DBV. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_OFF` · `OFF` · †<br>Set_Imd_Lun → OFF. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_V` · `V` · †<br>Set_Imd_Lun → V. Selects the level display units for the IMD measurement function
+  - `LUNit` — **SET** `Set_Imd_Lun_W` · `W` · †<br>Set_Imd_Lun → W. Selects the level display units for the IMD measurement function
   - `MMAX` — **SET** `Set_Imd_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Imd_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `SPEed` — **SET** `Set_Imd_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Imd_Spe_FAST` · `FAST` · †<br>Set_Imd_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Imd_Spe_MED` · `MED` · †<br>Set_Imd_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Imd_Spe_SLOW` · `SLOW` · †<br>Set_Imd_Spe → SLOW. Selects the sweep speed
   - `UNIT` — **SET** `Set_Imd_Unit` · `<value>` · args: `value` · enum: `PCT` | `DB` · †<br>Selects the IMD measurement units of percent or dB
+  - `UNIT` — **SET** `Set_Imd_Unit_DB` · `DB` · †<br>Set_Imd_Unit → DB. Selects the IMD measurement units of percent or dB
+  - `UNIT` — **SET** `Set_Imd_Unit_PCT` · `PCT` · †<br>Set_Imd_Unit → PCT. Selects the IMD measurement units of percent or dB
   - `AMAX?` — **NAB** `Get_Imd_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator
   - `AMIN?` — **NAB** `Get_Imd_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator
   - `LUNit?` — **NAB** `Get_Imd_Lun` · → CRD · †<br>Selects the level display units for the IMD measurement function
@@ -451,13 +659,34 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`LEVel`**
   - `AMIN` — **SET** `Set_Lev_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Lev_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Lev_Ext_OFF` · `OFF` · †<br>Set_Lev_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Lev_Ext_ON` · `ON` · †<br>Set_Lev_Ext → ON. Selects glide or step settling in external sweep mode
   - `LUNit` — **SET** `Set_Lev_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` · †<br>Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_DBG` · `DBG` · †<br>Set_Lev_Lun → DBG. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_DBM` · `DBM` · †<br>Set_Lev_Lun → DBM. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_DBR` · `DBR` · †<br>Set_Lev_Lun → DBR. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_DBU` · `DBU` · †<br>Set_Lev_Lun → DBU. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_DBV` · `DBV` · †<br>Set_Lev_Lun → DBV. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_V` · `V` · †<br>Set_Lev_Lun → V. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
+  - `LUNit` — **SET** `Set_Lev_Lun_W` · `W` · †<br>Set_Lev_Lun → W. Selects the measurement units for the second channel of the level function for the level meter :M2? query response
   - `MMAX` — **SET** `Set_Lev_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Lev_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `SPEed` — **SET** `Set_Lev_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Lev_Spe_FAST` · `FAST` · †<br>Set_Lev_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Lev_Spe_MED` · `MED` · †<br>Set_Lev_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Lev_Spe_SLOW` · `SLOW` · †<br>Set_Lev_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Lev_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Lev_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Lev_Swpt_AMPL` · `AMPL` · †<br>Set_Lev_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Lev_Swpt_FREQ` · `FREQ` · †<br>Set_Lev_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Lev_Unit` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` · †<br>Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_DBG` · `DBG` · †<br>Set_Lev_Unit → DBG. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_DBM` · `DBM` · †<br>Set_Lev_Unit → DBM. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_DBR` · `DBR` · †<br>Set_Lev_Unit → DBR. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_DBU` · `DBU` · †<br>Set_Lev_Unit → DBU. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_DBV` · `DBV` · †<br>Set_Lev_Unit → DBV. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_V` · `V` · †<br>Set_Lev_Unit → V. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
+  - `UNIT` — **SET** `Set_Lev_Unit_W` · `W` · †<br>Set_Lev_Unit → W. Selects the measurement units for the first channel of the level function for the function meter :M1? query response
   - `AMAX?` — **NAB** `Get_Lev_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Lev_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Lev_Ext` · → BOOL · †<br>Selects glide or step settling in external sweep mode
@@ -477,18 +706,49 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMIN` — **SET** `Set_Nois_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `BPFR` — **SET** `Set_Nois_Bpfr` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
   - `EXTernal` — **SET** `Set_Nois_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Nois_Ext_OFF` · `OFF` · †<br>Set_Nois_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Nois_Ext_ON` · `ON` · †<br>Set_Nois_Ext → ON. Selects glide or step settling in external sweep mode
   - `FILTer` — **SET** `Set_Nois_Filt` · `<value>` · args: `value` · enum: `SEL` | `WTD` | `UNWTD` · †<br>Selects the filter for the Noise function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Nois_Filt_SEL` · `SEL` · †<br>Set_Nois_Filt → SEL. Selects the filter for the Noise function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Nois_Filt_UNWTD` · `UNWTD` · †<br>Set_Nois_Filt → UNWTD. Selects the filter for the Noise function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Nois_Filt_WTD` · `WTD` · †<br>Set_Nois_Filt → WTD. Selects the filter for the Noise function, identical to the front-panel selection
   - `FMAX` — **SET** `Set_Nois_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN` — **SET** `Set_Nois_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `HPASs` — **SET** `Set_Nois_Hpas` · `<value>` · args: `value` · enum: `ON` | `OFF` · †<br>Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Nois_Hpas_OFF` · `OFF` · †<br>Set_Nois_Hpas → OFF. Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Nois_Hpas_ON` · `ON` · †<br>Set_Nois_Hpas → ON. Enables and disables the high pass filter
   - `LPASs` — **SET** `Set_Nois_Lpas` · `<value>` · args: `value` · enum: `R22` | `Q22` | `R30` | `R80` | `R300` · †<br>Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Nois_Lpas_Q22` · `Q22` · †<br>Set_Nois_Lpas → Q22. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Nois_Lpas_R22` · `R22` · †<br>Set_Nois_Lpas → R22. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Nois_Lpas_R30` · `R30` · †<br>Set_Nois_Lpas → R30. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Nois_Lpas_R300` · `R300` · †<br>Set_Nois_Lpas → R300. Selects the band pass filter when the unweighted filter is selected
+  - `LPASs` — **SET** `Set_Nois_Lpas_R80` · `R80` · †<br>Set_Nois_Lpas → R80. Selects the band pass filter when the unweighted filter is selected
   - `MMAX` — **SET** `Set_Nois_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Nois_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `SPEed` — **SET** `Set_Nois_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Nois_Spe_FAST` · `FAST` · †<br>Set_Nois_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Nois_Spe_MED` · `MED` · †<br>Set_Nois_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Nois_Spe_SLOW` · `SLOW` · †<br>Set_Nois_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Nois_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Nois_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Nois_Swpt_AMPL` · `AMPL` · †<br>Set_Nois_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Nois_Swpt_FREQ` · `FREQ` · †<br>Set_Nois_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Nois_Unit` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBG` | `W` | `DB` · †<br>Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_DB` · `DB` · †<br>Set_Nois_Unit → DB. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_DBG` · `DBG` · †<br>Set_Nois_Unit → DBG. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_DBM` · `DBM` · †<br>Set_Nois_Unit → DBM. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_DBU` · `DBU` · †<br>Set_Nois_Unit → DBU. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_DBV` · `DBV` · †<br>Set_Nois_Unit → DBV. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_V` · `V` · †<br>Set_Nois_Unit → V. Selects the measurement units for the Noise function
+  - `UNIT` — **SET** `Set_Nois_Unit_W` · `W` · †<br>Set_Nois_Unit → W. Selects the measurement units for the Noise function
   - `WTD` — **SET** `Set_Nois_Wtd` · `<value>` · args: `value` · enum: `AUX1` | `AUX2` | `IEC` | `RMSC` | `CCIR2K` | `QPKC` | `ARMC` · †<br>Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_ARMC` · `ARMC` · †<br>Set_Nois_Wtd → ARMC. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_AUX1` · `AUX1` · †<br>Set_Nois_Wtd → AUX1. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_AUX2` · `AUX2` · †<br>Set_Nois_Wtd → AUX2. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_CCIR2K` · `CCIR2K` · †<br>Set_Nois_Wtd → CCIR2K. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_IEC` · `IEC` · †<br>Set_Nois_Wtd → IEC. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_QPKC` · `QPKC` · †<br>Set_Nois_Wtd → QPKC. Selects the weighting filter for the Noise function when the WTD filter is selected
+  - `WTD` — **SET** `Set_Nois_Wtd_RMSC` · `RMSC` · †<br>Set_Nois_Wtd → RMSC. Selects the weighting filter for the Noise function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Nois_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Nois_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `BPFR?` — **NAB** `Get_Nois_Bpfr` · → 1 value · †<br>Selects the center frequency for the tunable bandpass filter when the Selective filter is selected
@@ -510,16 +770,35 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`PHASe`**
   - `AMIN` — **SET** `Set_Phas_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Phas_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Phas_Ext_OFF` · `OFF` · †<br>Set_Phas_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Phas_Ext_ON` · `ON` · †<br>Set_Phas_Ext → ON. Selects glide or step settling in external sweep mode
   - `FMAX` — **SET** `Set_Phas_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN` — **SET** `Set_Phas_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `LUNit` — **SET** `Set_Phas_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_DBG` · `DBG` · †<br>Set_Phas_Lun → DBG. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_DBM` · `DBM` · †<br>Set_Phas_Lun → DBM. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_DBR` · `DBR` · †<br>Set_Phas_Lun → DBR. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_DBU` · `DBU` · †<br>Set_Phas_Lun → DBU. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_DBV` · `DBV` · †<br>Set_Phas_Lun → DBV. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_OFF` · `OFF` · †<br>Set_Phas_Lun → OFF. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_V` · `V` · †<br>Set_Phas_Lun → V. Selects the Level meter units
+  - `LUNit` — **SET** `Set_Phas_Lun_W` · `W` · †<br>Set_Phas_Lun → W. Selects the Level meter units
   - `MMAX` — **SET** `Set_Phas_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays
   - `MMIN` — **SET** `Set_Phas_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `RANGe` — **SET** `Set_Phas_Rang` · `<value>` · args: `value` · enum: `DEG90` | `DEG180` | `DEG270` · †<br>Selects the Phase meter display range
+  - `RANGe` — **SET** `Set_Phas_Rang_DEG180` · `DEG180` · †<br>Set_Phas_Rang → DEG180. Selects the Phase meter display range
+  - `RANGe` — **SET** `Set_Phas_Rang_DEG270` · `DEG270` · †<br>Set_Phas_Rang → DEG270. Selects the Phase meter display range
+  - `RANGe` — **SET** `Set_Phas_Rang_DEG90` · `DEG90` · †<br>Set_Phas_Rang → DEG90. Selects the Phase meter display range
   - `SPEed` — **SET** `Set_Phas_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Phas_Spe_FAST` · `FAST` · †<br>Set_Phas_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Phas_Spe_MED` · `MED` · †<br>Set_Phas_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Phas_Spe_SLOW` · `SLOW` · †<br>Set_Phas_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Phas_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Phas_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Phas_Swpt_AMPL` · `AMPL` · †<br>Set_Phas_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Phas_Swpt_FREQ` · `FREQ` · †<br>Set_Phas_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Phas_Unit` · `<value>` · args: `value` · enum: `DEG` · †<br>Selects the default degree measurement units for the PHASE function
+  - `UNIT` — **SET** `Set_Phas_Unit_DEG` · `DEG` · †<br>Set_Phas_Unit → DEG. Selects the default degree measurement units for the PHASE function
   - `AMAX?` — **NAB** `Get_Phas_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Phas_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AVErage?` — **NAB** `Get_Phas_Ave` · → NR1 · †
@@ -540,16 +819,32 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`RATio`**
   - `AMIN` — **SET** `Set_Rat_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Rat_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Rat_Ext_OFF` · `OFF` · †<br>Set_Rat_Ext → OFF. Selects glide or step settling in external sweep mode
+  - `EXTernal` — **SET** `Set_Rat_Ext_ON` · `ON` · †<br>Set_Rat_Ext → ON. Selects glide or step settling in external sweep mode
   - `FMAX` — **SET** `Set_Rat_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN` — **SET** `Set_Rat_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `LUNit` — **SET** `Set_Rat_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_DBG` · `DBG` · †<br>Set_Rat_Lun → DBG. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_DBM` · `DBM` · †<br>Set_Rat_Lun → DBM. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_DBR` · `DBR` · †<br>Set_Rat_Lun → DBR. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_DBU` · `DBU` · †<br>Set_Rat_Lun → DBU. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_DBV` · `DBV` · †<br>Set_Rat_Lun → DBV. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_OFF` · `OFF` · †<br>Set_Rat_Lun → OFF. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_V` · `V` · †<br>Set_Rat_Lun → V. Selects the Ratio function Level measurement units
+  - `LUNit` — **SET** `Set_Rat_Lun_W` · `W` · †<br>Set_Rat_Lun → W. Selects the Ratio function Level measurement units
   - `MMAX` — **SET** `Set_Rat_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Rat_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `MODE` — **SET** `Set_Rat_Mode` · `<value>` · args: `value` · enum · †<br>Selects the sensitivity mode for two channel level ratio measurements, either Mode 1 or Mode 2
   - `SPEed` — **SET** `Set_Rat_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Rat_Spe_FAST` · `FAST` · †<br>Set_Rat_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Rat_Spe_MED` · `MED` · †<br>Set_Rat_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Rat_Spe_SLOW` · `SLOW` · †<br>Set_Rat_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Rat_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Rat_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Rat_Swpt_AMPL` · `AMPL` · †<br>Set_Rat_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Rat_Swpt_FREQ` · `FREQ` · †<br>Set_Rat_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Rat_Unit` · `<value>` · args: `value` · enum: `DB` · †<br>Selects either X/Y or dB units for the Ratio measurement function
+  - `UNIT` — **SET** `Set_Rat_Unit_DB` · `DB` · †<br>Set_Rat_Unit → DB. Selects either X/Y or dB units for the Ratio measurement function
   - `AMAX?` — **NAB** `Get_Rat_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Rat_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Rat_Ext` · → BOOL · †<br>Selects glide or step settling in external sweep mode
@@ -567,15 +862,36 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `WATT` — **DO** `Do_Ref_Watt` · †
 - **`SIN`**
   - `HPAS` — **SET** `Set_Sin_Hpas` · `<value>` · args: `value` · enum: `ON` | `OFF` · †<br>Enables and disables the SINAD high pass filter
+  - `HPAS` — **SET** `Set_Sin_Hpas_OFF` · `OFF` · †<br>Set_Sin_Hpas → OFF. Enables and disables the SINAD high pass filter
+  - `HPAS` — **SET** `Set_Sin_Hpas_ON` · `ON` · †<br>Set_Sin_Hpas → ON. Enables and disables the SINAD high pass filter
 - **`SINad`**
   - `LPASs` — **SET** `Set_Sin_Lpas` · `<value>` · args: `value` · enum: `R22` | `Q22` | `R30` | `R80` | `R300` · †<br>Selects the SINAD band pass filter
+  - `LPASs` — **SET** `Set_Sin_Lpas_Q22` · `Q22` · †<br>Set_Sin_Lpas → Q22. Selects the SINAD band pass filter
+  - `LPASs` — **SET** `Set_Sin_Lpas_R22` · `R22` · †<br>Set_Sin_Lpas → R22. Selects the SINAD band pass filter
+  - `LPASs` — **SET** `Set_Sin_Lpas_R30` · `R30` · †<br>Set_Sin_Lpas → R30. Selects the SINAD band pass filter
+  - `LPASs` — **SET** `Set_Sin_Lpas_R300` · `R300` · †<br>Set_Sin_Lpas → R300. Selects the SINAD band pass filter
+  - `LPASs` — **SET** `Set_Sin_Lpas_R80` · `R80` · †<br>Set_Sin_Lpas → R80. Selects the SINAD band pass filter
   - `LUNit` — **SET** `Set_Sin_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_DBG` · `DBG` · †<br>Set_Sin_Lun → DBG. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_DBM` · `DBM` · †<br>Set_Sin_Lun → DBM. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_DBR` · `DBR` · †<br>Set_Sin_Lun → DBR. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_DBU` · `DBU` · †<br>Set_Sin_Lun → DBU. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_DBV` · `DBV` · †<br>Set_Sin_Lun → DBV. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_OFF` · `OFF` · †<br>Set_Sin_Lun → OFF. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_V` · `V` · †<br>Set_Sin_Lun → V. Selects the measurement units for the Level measurement in the SINAD function
+  - `LUNit` — **SET** `Set_Sin_Lun_W` · `W` · †<br>Set_Sin_Lun → W. Selects the measurement units for the Level measurement in the SINAD function
   - `MMAX` — **SET** `Set_Sin_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the bargraph display
   - `MMIN` — **SET** `Set_Sin_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the bargraph display
   - `NOTChfreq` — **SET** `Set_Sin_Notc` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable notch filter when TUNE is set to FIXTUNE
   - `PRESet` — **SET** `Set_Sin_Pres` · `<value>` · args: `value` · enum: `F400` | `F1000` · †<br>Selects the PRESET setting to set both the generator frequency and the SINAD notch filter frequency to either 400 Hz (F400) or 1000 Hz (F1000)
+  - `PRESet` — **SET** `Set_Sin_Pres_F1000` · `F1000` · †<br>Set_Sin_Pres → F1000. Selects the PRESET setting to set both the generator frequency and the SINAD notch filter frequency to either 400 Hz (F400) or 1000 Hz (F1000)
+  - `PRESet` — **SET** `Set_Sin_Pres_F400` · `F400` · †<br>Set_Sin_Pres → F400. Selects the PRESET setting to set both the generator frequency and the SINAD notch filter frequency to either 400 Hz (F400) or 1000 Hz (F1000)
   - `TUNe` — **SET** `Set_Sin_Tun` · `<value>` · args: `value` · enum: `GENT` | `FIXT` | `OFF` · †<br>Selects the notch filter tuning mode for the SINAD function
+  - `TUNe` — **SET** `Set_Sin_Tun_FIXT` · `FIXT` · †<br>Set_Sin_Tun → FIXT. Selects the notch filter tuning mode for the SINAD function
+  - `TUNe` — **SET** `Set_Sin_Tun_GENT` · `GENT` · †<br>Set_Sin_Tun → GENT. Selects the notch filter tuning mode for the SINAD function
+  - `TUNe` — **SET** `Set_Sin_Tun_OFF` · `OFF` · †<br>Set_Sin_Tun → OFF. Selects the notch filter tuning mode for the SINAD function
   - `UNIT` — **SET** `Set_Sin_Unit` · `<value>` · args: `value` · enum: `DB` · †<br>Selects the default dB measurement units for the SINAD meter
+  - `UNIT` — **SET** `Set_Sin_Unit_DB` · `DB` · †<br>Set_Sin_Unit → DB. Selects the default dB measurement units for the SINAD meter
   - `HPASs?` — **NAB** `Get_Sin_Hpas` · → CRD · †<br>Enables and disables the SINAD high pass filter
   - `LPASs?` — **NAB** `Get_Sin_Lpas` · → CRD · †<br>Selects the SINAD band pass filter
   - `LUNit?` — **NAB** `Get_Sin_Lun` · → CRD · †<br>Selects the measurement units for the Level measurement in the SINAD function
@@ -589,20 +905,55 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `AMAX` — **SET** `Set_Thd_Amax` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN` — **SET** `Set_Thd_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Thd_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Selects glide or step in external sweep mode
+  - `EXTernal` — **SET** `Set_Thd_Ext_OFF` · `OFF` · †<br>Set_Thd_Ext → OFF. Selects glide or step in external sweep mode
+  - `EXTernal` — **SET** `Set_Thd_Ext_ON` · `ON` · †<br>Set_Thd_Ext → ON. Selects glide or step in external sweep mode
   - `FILTer` — **SET** `Set_Thd_Filt` · `<value>` · args: `value` · enum: `WTD` | `UNWT` | `AVER` · †<br>Selects the filter for the THD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Thd_Filt_AVER` · `AVER` · †<br>Set_Thd_Filt → AVER. Selects the filter for the THD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Thd_Filt_UNWT` · `UNWT` · †<br>Set_Thd_Filt → UNWT. Selects the filter for the THD function, identical to the front-panel selection
+  - `FILTer` — **SET** `Set_Thd_Filt_WTD` · `WTD` · †<br>Set_Thd_Filt → WTD. Selects the filter for the THD function, identical to the front-panel selection
   - `FMAX` — **SET** `Set_Thd_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep display
   - `FMIN` — **SET** `Set_Thd_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep display
   - `HPASs` — **SET** `Set_Thd_Hpas` · `<value>` · args: `value` · enum: `ON` | `OFF` · †<br>Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Thd_Hpas_OFF` · `OFF` · †<br>Set_Thd_Hpas → OFF. Enables and disables the high pass filter
+  - `HPASs` — **SET** `Set_Thd_Hpas_ON` · `ON` · †<br>Set_Thd_Hpas → ON. Enables and disables the high pass filter
   - `LPASs` — **SET** `Set_Thd_Lpas` · `<value>` · args: `value` · enum: `R22` | `Q22` | `R30` | `R80` | `R300` · †<br>Selects the band pass filter when the UNWTD filter is selected
+  - `LPASs` — **SET** `Set_Thd_Lpas_Q22` · `Q22` · †<br>Set_Thd_Lpas → Q22. Selects the band pass filter when the UNWTD filter is selected
+  - `LPASs` — **SET** `Set_Thd_Lpas_R22` · `R22` · †<br>Set_Thd_Lpas → R22. Selects the band pass filter when the UNWTD filter is selected
+  - `LPASs` — **SET** `Set_Thd_Lpas_R30` · `R30` · †<br>Set_Thd_Lpas → R30. Selects the band pass filter when the UNWTD filter is selected
+  - `LPASs` — **SET** `Set_Thd_Lpas_R300` · `R300` · †<br>Set_Thd_Lpas → R300. Selects the band pass filter when the UNWTD filter is selected
+  - `LPASs` — **SET** `Set_Thd_Lpas_R80` · `R80` · †<br>Set_Thd_Lpas → R80. Selects the band pass filter when the UNWTD filter is selected
   - `LUNit` — **SET** `Set_Thd_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_DBG` · `DBG` · †<br>Set_Thd_Lun → DBG. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_DBM` · `DBM` · †<br>Set_Thd_Lun → DBM. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_DBR` · `DBR` · †<br>Set_Thd_Lun → DBR. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_DBU` · `DBU` · †<br>Set_Thd_Lun → DBU. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_DBV` · `DBV` · †<br>Set_Thd_Lun → DBV. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_OFF` · `OFF` · †<br>Set_Thd_Lun → OFF. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_V` · `V` · †<br>Set_Thd_Lun → V. Selects the measurement units for the Level measurement in the THD function
+  - `LUNit` — **SET** `Set_Thd_Lun_W` · `W` · †<br>Set_Thd_Lun → W. Selects the measurement units for the Level measurement in the THD function
   - `MMAX` — **SET** `Set_Thd_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Thd_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `NOTChfreq` — **SET** `Set_Thd_Notc` · `<value>` · args: `value` · †<br>Selects the center frequency for the tunable notch filter when TUNE is set to FIXTUNE
   - `SPEed` — **SET** `Set_Thd_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Thd_Spe_FAST` · `FAST` · †<br>Set_Thd_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Thd_Spe_MED` · `MED` · †<br>Set_Thd_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Thd_Spe_SLOW` · `SLOW` · †<br>Set_Thd_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Thd_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Thd_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Thd_Swpt_AMPL` · `AMPL` · †<br>Set_Thd_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Thd_Swpt_FREQ` · `FREQ` · †<br>Set_Thd_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `TUNe` — **SET** `Set_Thd_Tun` · `<value>` · args: `value` · enum: `AUT` | `GENT` | `FIXT` · †<br>Selects the notch filter tuning mode for the THD function
+  - `TUNe` — **SET** `Set_Thd_Tun_AUT` · `AUT` · †<br>Set_Thd_Tun → AUT. Selects the notch filter tuning mode for the THD function
+  - `TUNe` — **SET** `Set_Thd_Tun_FIXT` · `FIXT` · †<br>Set_Thd_Tun → FIXT. Selects the notch filter tuning mode for the THD function
+  - `TUNe` — **SET** `Set_Thd_Tun_GENT` · `GENT` · †<br>Set_Thd_Tun → GENT. Selects the notch filter tuning mode for the THD function
   - `UNIT` — **SET** `Set_Thd_Unit` · `<value>` · args: `value` · enum: `PCT` | `DB` | `V` | `DBV` | `DBU` | `DBM` | `DBR` · †<br>Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_DB` · `DB` · †<br>Set_Thd_Unit → DB. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_DBM` · `DBM` · †<br>Set_Thd_Unit → DBM. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_DBR` · `DBR` · †<br>Set_Thd_Unit → DBR. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_DBU` · `DBU` · †<br>Set_Thd_Unit → DBU. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_DBV` · `DBV` · †<br>Set_Thd_Unit → DBV. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_PCT` · `PCT` · †<br>Set_Thd_Unit → PCT. Selects the measurement units for the THD function
+  - `UNIT` — **SET** `Set_Thd_Unit_V` · `V` · †<br>Set_Thd_Unit → V. Selects the measurement units for the THD function
   - `WTD` — **SET** `Set_Thd_Wtd` · `<value>` · args: `value` · †<br>Selects the weighting filter for the THD+N function when the WTD filter is selected
   - `AMAX?` — **NAB** `Get_Thd_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Thd_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
@@ -625,13 +976,33 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `MEDIUM` — **DO** `Do_Thd_Medium` · †
 - **`WF`**
   - `DET` — **SET** `Set_Wf_Det` · `<value>` · args: `value` · enum: `IEC` | `NAB` | `JIS` · †<br>Selects the W+F detector
+  - `DET` — **SET** `Set_Wf_Det_IEC` · `IEC` · †<br>Set_Wf_Det → IEC. Selects the W+F detector
+  - `DET` — **SET** `Set_Wf_Det_JIS` · `JIS` · †<br>Set_Wf_Det → JIS. Selects the W+F detector
+  - `DET` — **SET** `Set_Wf_Det_NAB` · `NAB` · †<br>Set_Wf_Det → NAB. Selects the W+F detector
   - `FILTer` — **SET** `Set_Wf_Filt` · `<value>` · args: `value` · enum: `WTD` | `UNWT` · †<br>Selects the W+F weighted or unweighted filters
+  - `FILTer` — **SET** `Set_Wf_Filt_UNWT` · `UNWT` · †<br>Set_Wf_Filt → UNWT. Selects the W+F weighted or unweighted filters
+  - `FILTer` — **SET** `Set_Wf_Filt_WTD` · `WTD` · †<br>Set_Wf_Filt → WTD. Selects the W+F weighted or unweighted filters
   - `LUNit` — **SET** `Set_Wf_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_DBG` · `DBG` · †<br>Set_Wf_Lun → DBG. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_DBM` · `DBM` · †<br>Set_Wf_Lun → DBM. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_DBR` · `DBR` · †<br>Set_Wf_Lun → DBR. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_DBU` · `DBU` · †<br>Set_Wf_Lun → DBU. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_DBV` · `DBV` · †<br>Set_Wf_Lun → DBV. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_OFF` · `OFF` · †<br>Set_Wf_Lun → OFF. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_V` · `V` · †<br>Set_Wf_Lun → V. Selects the measurement units for the Level measurement in the W+F function
+  - `LUNit` — **SET** `Set_Wf_Lun_W` · `W` · †<br>Set_Wf_Lun → W. Selects the measurement units for the Level measurement in the W+F function
   - `MMAX` — **SET** `Set_Wf_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the bargraph display
   - `MMIN` — **SET** `Set_Wf_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the bargraph display
   - `RESPonse` — **SET** `Set_Wf_Resp` · `<value>` · args: `value` · enum: `PEAK` | `SIG2` · †<br>Selects the measurement response mode for W+F measurements
+  - `RESPonse` — **SET** `Set_Wf_Resp_PEAK` · `PEAK` · †<br>Set_Wf_Resp → PEAK. Selects the measurement response mode for W+F measurements
+  - `RESPonse` — **SET** `Set_Wf_Resp_SIG2` · `SIG2` · †<br>Set_Wf_Resp → SIG2. Selects the measurement response mode for W+F measurements
   - `UNIT` — **SET** `Set_Wf_Unit` · `<value>` · args: `value` · enum: `PCT` · †<br>Selects the default percent measurement units for the W+F meter
+  - `UNIT` — **SET** `Set_Wf_Unit_PCT` · `PCT` · †<br>Set_Wf_Unit → PCT. Selects the default percent measurement units for the W+F meter
   - `WFUNit` — **SET** `Set_Wf_Wfun` · `<value>` · args: `value` · enum: `HZ` | `DPCT3000` | `DPCT3150` | `OFF` · †<br>Selects the W+F function frequency meter units and reference frequency for frequency deviation measurements
+  - `WFUNit` — **SET** `Set_Wf_Wfun_DPCT3000` · `DPCT3000` · †<br>Set_Wf_Wfun → DPCT3000. Selects the W+F function frequency meter units and reference frequency for frequency deviation measurements
+  - `WFUNit` — **SET** `Set_Wf_Wfun_DPCT3150` · `DPCT3150` · †<br>Set_Wf_Wfun → DPCT3150. Selects the W+F function frequency meter units and reference frequency for frequency deviation measurements
+  - `WFUNit` — **SET** `Set_Wf_Wfun_HZ` · `HZ` · †<br>Set_Wf_Wfun → HZ. Selects the W+F function frequency meter units and reference frequency for frequency deviation measurements
+  - `WFUNit` — **SET** `Set_Wf_Wfun_OFF` · `OFF` · †<br>Set_Wf_Wfun → OFF. Selects the W+F function frequency meter units and reference frequency for frequency deviation measurements
   - `DETector?` — **NAB** `Get_Wf_Det` · → CRD · †<br>Selects the W+F detector
   - `FILTer?` — **NAB** `Get_Wf_Filt` · → CRD · †<br>Selects the W+F weighted or unweighted filters
   - `LUNit?` — **NAB** `Get_Wf_Lun` · → CRD · †<br>Selects the measurement units for the Level measurement in the W+F function
@@ -645,15 +1016,36 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`XTALk`**
   - `AMIN` — **SET** `Set_Xtal_Amin` · `<value>` · args: `value` · numeric (V) · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal` — **SET** `Set_Xtal_Ext` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Returns the current external sweep settling mode
+  - `EXTernal` — **SET** `Set_Xtal_Ext_OFF` · `OFF` · †<br>Set_Xtal_Ext → OFF. Returns the current external sweep settling mode
+  - `EXTernal` — **SET** `Set_Xtal_Ext_ON` · `ON` · †<br>Set_Xtal_Ext → ON. Returns the current external sweep settling mode
   - `FMAX` — **SET** `Set_Xtal_Fmax` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the upper frequency display range for the sweep and bargraph displays
   - `FMIN` — **SET** `Set_Xtal_Fmin` · `<value>` · args: `value` · numeric (Hz) · †<br>Selects the lower frequency display range for the sweep and bargraph displays
   - `LUNit` — **SET** `Set_Xtal_Lun` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DBG` | `W` | `OFF` · †<br>Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_DBG` · `DBG` · †<br>Set_Xtal_Lun → DBG. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_DBM` · `DBM` · †<br>Set_Xtal_Lun → DBM. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_DBR` · `DBR` · †<br>Set_Xtal_Lun → DBR. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_DBU` · `DBU` · †<br>Set_Xtal_Lun → DBU. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_DBV` · `DBV` · †<br>Set_Xtal_Lun → DBV. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_OFF` · `OFF` · †<br>Set_Xtal_Lun → OFF. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_V` · `V` · †<br>Set_Xtal_Lun → V. Selects the level measurement units for the XTALK function
+  - `LUNit` — **SET** `Set_Xtal_Lun_W` · `W` · †<br>Set_Xtal_Lun → W. Selects the level measurement units for the XTALK function
   - `MMAX` — **SET** `Set_Xtal_Mmax` · `<value>` · args: `value` · numeric · †<br>Selects the upper magnitude display range for the sweep and bargraph displays in currently selected units
   - `MMIN` — **SET** `Set_Xtal_Mmin` · `<value>` · args: `value` · numeric · †<br>Selects the lower magnitude display range for the sweep and bargraph displays
   - `SPEed` — **SET** `Set_Xtal_Spe` · `<value>` · args: `value` · enum: `FAST` | `MED` | `SLOW` · †<br>Selects the sweep speed
+  - `SPEed` — **SET** `Set_Xtal_Spe_FAST` · `FAST` · †<br>Set_Xtal_Spe → FAST. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Xtal_Spe_MED` · `MED` · †<br>Set_Xtal_Spe → MED. Selects the sweep speed
+  - `SPEed` — **SET** `Set_Xtal_Spe_SLOW` · `SLOW` · †<br>Set_Xtal_Spe → SLOW. Selects the sweep speed
   - `STEPs` — **SET** `Set_Xtal_Step` · `<value>` · args: `value` · integer · †<br>Selects the sweep mode or the number of sweep steps
   - `SWPType` — **SET** `Set_Xtal_Swpt` · `<value>` · args: `value` · enum: `FREQ` | `AMPL` · †<br>Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Xtal_Swpt_AMPL` · `AMPL` · †<br>Set_Xtal_Swpt → AMPL. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
+  - `SWPType` — **SET** `Set_Xtal_Swpt_FREQ` · `FREQ` · †<br>Set_Xtal_Swpt → FREQ. Specifies that either a frequency sweep or amplitude sweep is to be performed when the SWEEP START command is received
   - `UNIT` — **SET** `Set_Xtal_Unit` · `<value>` · args: `value` · enum: `V` | `DBV` | `DBU` | `DBM` | `DBR` | `DB` · †<br>Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_DB` · `DB` · †<br>Set_Xtal_Unit → DB. Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_DBM` · `DBM` · †<br>Set_Xtal_Unit → DBM. Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_DBR` · `DBR` · †<br>Set_Xtal_Unit → DBR. Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_DBU` · `DBU` · †<br>Set_Xtal_Unit → DBU. Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_DBV` · `DBV` · †<br>Set_Xtal_Unit → DBV. Selects the XTALK measurement units
+  - `UNIT` — **SET** `Set_Xtal_Unit_V` · `V` · †<br>Set_Xtal_Unit → V. Selects the XTALK measurement units
   - `AMAX?` — **NAB** `Get_Xtal_Amax` · → NR3 V · †<br>For the Access instrument, this command sets the maximum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `AMIN?` — **NAB** `Get_Xtal_Amin` · → NR3 V · †<br>For the Access instrument, this command sets the minimum amplitude level for an amplitude sweep of the analog generator when the SWPType command is set to AMPL
   - `EXTernal?` — **NAB** `Get_Xtal_Ext` · → BOOL · †<br>Returns the current external sweep settling mode

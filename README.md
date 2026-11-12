@@ -16,8 +16,8 @@ The **Distortion** instruments of the APK.audio bench, as one thing: 2 models, t
 
 | Model | Maker | What | Commands | Table | API |
 |---|---|---|---:|:---:|---|
-| [HP_8903B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/HP_8903B.md) | HP / Agilent / Keysight | Audio Analyzer (20 Hz - 100 kHz, distortion/level) | 610 |  | :15900 |
-| [Porta_one](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/Porta_one.md) | Audio Precision | Audio Precision Portable One Plus / Dual Domain audio analyzer | 610 | ✅ | :15901 |
+| [HP_8903B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/HP_8903B.md) | HP / Agilent / Keysight | Audio Analyzer (20 Hz - 100 kHz, distortion/level) | 1002 |  | :15900 |
+| [Porta_one](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/Porta_one.md) | Audio Precision | Audio Precision Portable One Plus / Dual Domain audio analyzer | 1002 | ✅ | :15901 |
 
 ## Layout
 

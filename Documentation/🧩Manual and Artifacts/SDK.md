@@ -14,5 +14,5 @@ Every Distortion model this library drives, and how to drive it. Each model answ
 
 | Model | Maker | get | set | nab | rig | do | Port |
 |---|---|---:|---:|---:|---:|---:|---:|
-| [HP_8903B](SDK/HP_8903B.md) | HP / Agilent / Keysight | 288 | 276 | 289 | 0 | 45 | 15900 |
-| [Porta_one](SDK/Porta_one.md) | Audio Precision | 288 | 276 | 289 | 0 | 45 | 15901 |
+| [HP_8903B](SDK/HP_8903B.md) | HP / Agilent / Keysight | 288 | 668 | 289 | 0 | 45 | 15900 |
+| [Porta_one](SDK/Porta_one.md) | Audio Precision | 288 | 668 | 289 | 0 | 45 | 15901 |
