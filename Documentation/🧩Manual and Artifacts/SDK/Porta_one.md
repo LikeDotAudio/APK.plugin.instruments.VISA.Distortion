@@ -21,21 +21,21 @@ From the BIM part [`audio-precision/portable-one-dual-domain`](/api/bim/parts?fu
 
 | Terminal | Connector | Domain | Count | Signal |
 |---|---|---|---:|---|
-| A / B | XLR | audio | 2 | front-panel analog analyser inputs A / B, 350 Vpk max |
-| DIGITAL ANALYZER IN BAL | XLR | audio | 1 | rear-panel AES/EBU balanced digital in |
-| DIGITAL ANALYZER IN UNBAL | BNC | audio | 1 | rear-panel SPDIF / EIAJ unbalanced digital in (becomes a monitor out when the XLR is in use) |
-| DIGITAL ANALYZER IN OPTICAL | optical | audio | 1 | rear-panel optical digital in |
-| DIGITAL REFERENCE INPUT | XLR | clock | 1 | rear-panel AES/EBU reference (house sync) — only the timing is used |
+| A / B | XLR3 | audio | 2 | front-panel analog analyser inputs A / B, 350 Vpk max |
+| DIGITAL ANALYZER IN BAL | XLR3 | audio | 1 | rear-panel AES/EBU balanced digital in |
+| DIGITAL ANALYZER IN UNBAL | COAX-BNC | audio | 1 | rear-panel SPDIF / EIAJ unbalanced digital in (becomes a monitor out when the XLR is in use) |
+| DIGITAL ANALYZER IN OPTICAL | TOSLINK | audio | 1 | rear-panel optical digital in |
+| DIGITAL REFERENCE INPUT | XLR3 | clock | 1 | rear-panel AES/EBU reference (house sync) — only the timing is used |
 
 ### Outputs
 
 | Terminal | Connector | Domain | Count | Signal |
 |---|---|---|---:|---|
-| A / B | XLR | audio | 2 | front-panel analog generator outputs A / B to the device under test |
+| A / B | XLR3 | audio | 2 | front-panel analog generator outputs A / B to the device under test |
 | MONITOR |  | audio | 1 | front-panel stereo headphone jack |
-| DIGITAL GENERATOR OUT BAL | XLR | audio | 1 | rear-panel AES/EBU balanced digital out |
-| DIGITAL GENERATOR OUT UNBAL | BNC | audio | 1 | rear-panel SPDIF unbalanced digital out |
-| DIGITAL GENERATOR OUT OPTICAL | optical | audio | 1 | rear-panel optical digital out |
+| DIGITAL GENERATOR OUT BAL | XLR3 | audio | 1 | rear-panel AES/EBU balanced digital out |
+| DIGITAL GENERATOR OUT UNBAL | COAX-BNC | audio | 1 | rear-panel SPDIF unbalanced digital out |
+| DIGITAL GENERATOR OUT OPTICAL | TOSLINK | audio | 1 | rear-panel optical digital out |
 | INPUT / ANALYZER |  | audio | 2 | rear-panel INPUT and ANALYZER monitor outputs |
 | ANALOG / DIGITAL |  | signal | 2 | rear-panel ANALOG and DIGITAL scope trigger outputs, 5 Vpp max |
 
@@ -43,10 +43,10 @@ From the BIM part [`audio-precision/portable-one-dual-domain`](/api/bim/parts?fu
 
 | Terminal | Connector | Domain | Count | Signal |
 |---|---|---|---:|---|
-| PRINTER | DB-25 female | control | 1 | parallel printer port |
-| GPIB | IEEE-488 | control | 1 | IEEE-488 interface — only with option P1P-488 |
+| PRINTER | DSUB-25-F | control | 1 | parallel printer port |
+| GPIB | GPIB | control | 1 | IEEE-488 interface — only with option P1P-488 |
 
-**Power:** MAINS IN (power cord connector)
+**Power:** MAINS IN (IEC-INLET)
 
 <!-- /sdk:io -->
 
