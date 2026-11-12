@@ -4,7 +4,7 @@
 
 Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the table, not this file.
 
-**1002 commands** — SET 668 · RIG 0 · NAB 289 · DO 45 · 967 unverified (96%)
+**1004 commands** — SET 670 · RIG 0 · NAB 289 · DO 45 · 969 unverified (96%)
 
 `SET` one argument · `RIG` several applied together · `NAB` a query · `DO` a parameterless action. **†** marks a command swept out of a manual and never sent to the instrument.
 
@@ -417,7 +417,9 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **`DOSTatus`**
   - `CONS` — **SET** `Set_Dost_Cons` · `<value>` · args: `value` · †<br>Specifies the consumer standard status bit settings for the rate, emphasis, and copy bits
   - `PROF` — **SET** `Set_Dost_Prof` · `<value>` · args: `value` · †<br>Specifies the professional standard status bit settings for the rate, output pre-emphasis, origination, and destination status bits
-  - `STDO` — **SET** `Set_Dost_Stdo` · `<value>` · args: `value` · enum · †<br>Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)
+  - `STDO` — **SET** `Set_Dost_Stdo` · `<value>` · args: `value` · enum: `PROF` | `CONS` · †<br>Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)
+  - `STDO` — **SET** `Set_Dost_Stdo_CONS` · `CONS` · †<br>Set_Dost_Stdo → CONS. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)
+  - `STDO` — **SET** `Set_Dost_Stdo_PROF` · `PROF` · †<br>Set_Dost_Stdo → PROF. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)
   - `VALidity` — **SET** `Set_Dost_Val` · `<value>` · args: `value` · numeric · †<br>Sets the VALIDITY bit for the digital interface output channel A B data streams to either VALID or INVALID
   - `CONS?` — **NAB** `Get_Dost_Cons` · → 1 value · †<br>Specifies the consumer standard status bit settings for the rate, emphasis, and copy bits
   - `PROF?` — **NAB** `Get_Dost_Prof` · → 1 value · †<br>Specifies the professional standard status bit settings for the rate, output pre-emphasis, origination, and destination status bits

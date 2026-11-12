@@ -68,7 +68,7 @@ mosquitto_pub -t "$T" -m '{"value": <value>}'
 
 A read's answer is published on `<box>/Reading/<command>` (the **Out** column below); `<box>` is `APK.audio/System/Protocols/visa/Device/<Family>/<Model>/<Dev…>`.
 
-## Commands (1290) — inputs and outputs of the API
+## Commands (1292) — inputs and outputs of the API
 
 **In** is what the command takes; **Out** is what it gives back and where. Every command arrives on `APK.audio/Gui/Komands/Distortion/<Command>`.
 
@@ -365,7 +365,7 @@ A read's answer is published on `<box>/Reading/<command>` (the **Out** column be
 | `Get_Xtal_Swpt` | `XTALk:SWPType?` | — | → `…/Reading/Get_Xtal_Swpt` | XTAL | unverified |
 | `Get_Xtal_Unit` | `XTALk:UNIT?` | — | CRD → `…/Reading/Get_Xtal_Unit` | XTAL | unverified |
 
-### `set` — writes one value (668)
+### `set` — writes one value (670)
 
 | Command | SCPI | In | Out | Group | |
 |---|---|---|---|---|---|
@@ -599,7 +599,9 @@ A read's answer is published on `<box>/Reading/<command>` (the **Out** column be
 | `Set_Dno_Wtd_RMSC` | `DNOise:WTD RMSC` | — | — | DNO | unverified |
 | `Set_Dost_Cons` | `DOSTatus:CONS <value>` | `value`: unknown | — | DOST | unverified |
 | `Set_Dost_Prof` | `DOSTatus:PROF <value>` | `value`: unknown | — | DOST | unverified |
-| `Set_Dost_Stdo` | `DOSTatus:STDO <value>` | `value`: enum | — | DOST | unverified |
+| `Set_Dost_Stdo` | `DOSTatus:STDO <value>` | `value`: `PROF` · `CONS` | — | DOST | unverified |
+| `Set_Dost_Stdo_CONS` | `DOSTatus:STDO CONS` | — | — | DOST | unverified |
+| `Set_Dost_Stdo_PROF` | `DOSTatus:STDO PROF` | — | — | DOST | unverified |
 | `Set_Dost_Val` | `DOSTatus:VALidity <value>` | `value`: numeric | — | DOST | unverified |
 | `Set_Dph_Amax` | `DPHase:AMAX <value>` | `value`: numeric V | — | DPH | unverified |
 | `Set_Dph_Amin` | `DPHase:AMIN <value>` | `value`: numeric V | — | DPH | unverified |

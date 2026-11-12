@@ -76,9 +76,9 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 1002,
+    "total_commands": 1004,
     "get_count": 288,
-    "set_count": 668,
+    "set_count": 670,
     "nab_count": 289,
     "rig_count": 0,
     "do_count": 45
@@ -13875,7 +13875,11 @@
           "value"
         ],
         "arg": {
-          "kind": "enum"
+          "kind": "enum",
+          "values": [
+            "PROF",
+            "CONS"
+          ]
         },
         "returns": null,
         "mqtt": {
@@ -13883,6 +13887,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Dost_Stdo",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Dost_Stdo_CONS": {
+        "command": "Set_Dost_Stdo_CONS",
+        "verb": "set",
+        "description": "Set_Dost_Stdo \u2192 CONS. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)",
+        "scpi": "DOSTatus:STDO CONS",
+        "scpi_fast": "DOST:STDO CONS",
+        "subsystem": "DOST",
+        "group": "DOST",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Distortion/Set_Dost_Stdo_CONS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Dost_Stdo_CONS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Dost_Stdo_PROF": {
+        "command": "Set_Dost_Stdo_PROF",
+        "verb": "set",
+        "description": "Set_Dost_Stdo \u2192 PROF. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)",
+        "scpi": "DOSTatus:STDO PROF",
+        "scpi_fast": "DOST:STDO PROF",
+        "subsystem": "DOST",
+        "group": "DOST",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Distortion/Set_Dost_Stdo_PROF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Dost_Stdo_PROF",
             "value": "<value>",
             "input_name": "value"
           }

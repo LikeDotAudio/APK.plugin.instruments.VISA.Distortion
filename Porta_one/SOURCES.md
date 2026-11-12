@@ -14,3 +14,8 @@ Every change to this table that a vendor manual confirms, with where the manual 
 - `set/Set_Dxt_Unit` — searched: as above
 - `set/Set_Mode` — searched: as above
 - `set/Set_Rat_Mode` — searched: as above
+
+## Options for the selectors (2026-11-11)
+
+- `set/Set_Dost_Stdo` — options PROF / CONS from the entry's own description ("either professional standard (PROF) or consumer standard (CONS)"); individuals generated, unverified.
+- Still without options (only a default is known, no command dictionary found): `Set_Damp_Hpas`, `Set_Dchk_Unit`, `Set_Djit_Det`, `Set_Djit_Hpas`, `Set_Dno_Hpas`, `Set_Dthd_Hpas`, `Set_Dxt_Unit`, `Set_Rat_Mode` (default `MODE 1` — whether the unit wants `MODE 1`, `MODE1` or `1` is unknown).

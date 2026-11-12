@@ -2659,13 +2659,34 @@
       "scpiFast": "DOST:STDO <value>",
       "description": "Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)",
       "arg": {
-        "kind": "enum"
+        "kind": "enum",
+        "values": [
+          "PROF",
+          "CONS"
+        ]
       },
       "args": [
         "value"
       ],
       "subsystem": "DOST",
-      "unverified": true
+      "unverified": true,
+      "notes": "Options 2026-11-11 from the entry's own description ('either professional standard (PROF) or consumer standard (CONS)'); no Portable One command dictionary found. Unverified"
+    },
+    "Set_Dost_Stdo_CONS": {
+      "scpi": "DOSTatus:STDO CONS",
+      "scpiFast": "DOST:STDO CONS",
+      "description": "Set_Dost_Stdo → CONS. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)",
+      "subsystem": "DOST",
+      "unverified": true,
+      "notes": "Individual of selector Set_Dost_Stdo = CONS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Dost_Stdo_PROF": {
+      "scpi": "DOSTatus:STDO PROF",
+      "scpiFast": "DOST:STDO PROF",
+      "description": "Set_Dost_Stdo → PROF. Sets the standard for output status bits formatting, either professional standard (PROF) or consumer standard (CONS)",
+      "subsystem": "DOST",
+      "unverified": true,
+      "notes": "Individual of selector Set_Dost_Stdo = PROF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Dost_Val": {
       "scpi": "DOSTatus:VALidity <value>",
